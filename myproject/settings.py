@@ -124,6 +124,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# 配置静态文件
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# 使用redis 缓存session
+SESSION_ENGINE = 'redis_sessions.session'
+SESSION_REDIS_HOST = '127.0.0.1'
+SESSION_REDIS_POST = 6379
+SESSION_REDIS_DB = 0  # 选择数据库

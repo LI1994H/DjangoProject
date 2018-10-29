@@ -1,13 +1,26 @@
+import hashlib
+import uuid
+
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from sanfu.models import User
 
+# 加密
+def generate_password(password):
+    sha = hashlib.sha512()
+    sha.update(password.encode('utf-8'))
+    return sha.hexdigest()
 
 def index(request):
-    username = request.COOKIES.get('username')
-    return render(request, 'index.html', context={'username':username})
+    token = request.COOKIES.get('token')
+    users = User.objects.filter(token=token)
+    if users.exists():
+        user = users.first()
+        return render(request, 'index.html', context={'username':user.username})
+    else:
+        return render(request,'index.html')
 
 
 def login(request):
@@ -15,12 +28,13 @@ def login(request):
         return render(request, 'login.html')
     elif request.method == 'POST':
         username = request.POST.get('loginName')
-        userpassword = request.POST.get('loginPwd')
+        userpassword = generate_password(request.POST.get('loginPwd'))
         users = User.objects.filter(username=username).filter(userpassword=userpassword)
         if users.count():
             user = users.first()
-            response = redirect('sanfu:index')
-            response.set_cookie('username', user.username)
+            user.token = uuid.uuid5(uuid.uuid4(),username)
+            response = render_to_response('index.html',context={'username':username})
+            response.set_cookie('token', user.token)
             return response
         else:
             response = redirect('sanfu:login')
@@ -41,20 +55,32 @@ def goodMsg(request):
 
 def regiest(request):
     if request.method == 'GET':
-        username = request.COOKIES.get('username')
-        return render(request, 'regiest.html',context={'username':username})
-    elif request.method == 'POST':
-        user = User()
-        username = request.POST.get('username')
-        user.username = username
-        user.userpassword = request.POST.get('password')
-        user.save()
-        response = redirect('sanfu:index')
-        response.set_cookie('username', username)
+        response = render_to_response('regiest.html')
+        response.delete_cookie('token')
         return response
+    elif request.method == 'POST':
+        username = request.POST.get('username')
+        userpassword = request.POST.get('password')
+        # 存入数据库
+        try:
+            user = User()
+            user.username = username
+            # 密码加密
+            user.userpassword = generate_password(userpassword)
+            # token 生成
+            user.token = uuid.uuid5(uuid.uuid4(), username)
+            user.save()
+            response = render_to_response('index.html', context={'username': user.username})
+            # 状态保持 默认两周
+            response.set_cookie('token',user.token)
+
+            return response
+        except Exception as e:
+            return HttpResponse('注册失败 用户名已存在')
+
 
 
 def outlogin(request):
     response = redirect('sanfu:index')
-    response.delete_cookie('username')
+    response.delete_cookie('token')
     return response
