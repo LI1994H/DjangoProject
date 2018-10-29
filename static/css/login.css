@@ -1,0 +1,165 @@
+.loginMain{
+	width: 1000px;
+	height: auto;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	
+}
+.loginAd{
+	width: 400px;
+	height: 360px;
+	padding: 20px;
+	float: left;
+	cursor: pointer;
+}
+.loginAd img{
+	width: 100%;
+	height: 100%;
+}
+.loginWay{
+	width: 466px;
+	height: 364px;
+	border: 1px solid #eee;
+	margin: 20px;
+	float: right;
+	
+}
+.loginWay li{
+	width: 233px;
+	height: 40px;
+	float: left;
+	text-align: center;
+	background: #eee;
+	color: #999;
+	line-height: 40px;
+	cursor: pointer;
+}
+.loginWay .loginliact{
+	background: white;
+	color: #00aced;
+}
+.qrLogin{
+	width:468px;
+	height: 264px;
+	overflow: hidden;
+	
+	
+}
+.qrLogin img{
+	width: 244px;
+	height: 244px;
+	margin-left:116px ;
+}
+.loginFriend{
+	width: 468px;
+	height: 54px;
+	border-top: solid 1px #eee;
+	padding-top: 20px;
+}
+.loginFriend span{
+	padding-left: 16px;
+}
+.loginFriend a{
+	display: inline-block;
+	width: 88px;
+	height: 24px;
+	background: url(../img/login/20160913155214_5.png) no-repeat;
+}
+.loginFooter{
+	width: 1000px;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+	margin-top:20px ;
+	text-align: center;
+}
+.loginFooter ul{
+	width: 300px;
+	height: auto;
+	overflow: hidden;
+	margin: 0 auto;
+	
+}
+.loginFooter li{
+	padding: 5px;
+	float: left;
+}
+.loginFooter a{
+	text-decoration: none;
+	color: black;
+	font-size: 12px;
+}
+.loginFooter a:hover{
+	color: #0066cc;
+}
+.loginFooter p,span{
+	font-size: 12px;
+	display: inline-block;
+}
+.formLogin{
+	width:468px;
+	height: auto;
+	display: none;
+	overflow: hidden;
+}
+.formLogin ul{
+	width: 466px;
+	height: auto;
+	overflow: hidden;
+	margin-top: 30px;
+}
+.formLogin li{
+	width: 300px;
+	height: auto;
+	overflow: hidden;
+	padding-left:90px ;
+	font-size: 12px;
+	background: white;
+	cursor: default;
+}
+.formLogin input,label{
+	float: left;
+}
+.formLogin li input[type="text"]{
+	width: 280px;
+	height: 40px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	margin: 5px;
+}
+.formLogin li input[type="password"]{
+	width: 280px;
+	height: 40px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	margin: 5px;
+}
+.formLogin li input[type="submit"]{
+	width: 120px;
+	height: 35px;
+	border: 0;
+	background: #00ACED;
+	border-radius: 5px;
+	color: white;
+	margin: 5px;
+	cursor: pointer;
+}
+.formLogin li label{
+	color: black;
+}
+.formLogin li input[type="checkbox"]{
+	height: 35px;
+}
+.formLogin li>div{
+	float: right;
+}
+.formLogin li>div>a{
+	text-decoration: none;
+	color: black;
+	
+}
+#loginerror{
+	font-size: 12px;
+	color: red;
+}

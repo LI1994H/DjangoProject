@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta accesskey="百货商城 服装 时尚 鞋帽" />
+		<meta content="百货商城 服装 时尚 鞋帽" />
+		<title>注册界面</title>
+        {% load static %}
+		<link rel='icon' href="{% static 'img/index/icon.ico' %}" type=‘image/x-ico’ />
+		<link rel="stylesheet" href="{% static 'css/head.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/iconfont.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/gradient.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/regiest.css' %}"/>
+		<link rel="stylesheet" href="{% static 'css/jquery.idcode.css' %}" />
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'js/jquery.idcode.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/head.js' %}"></script>
+	</head>
+
+	<body>
+		<!--
+        	主head
+        -->
+		<div class="loginbar">
+			<div class="loginbarMain">
+				<div>
+					<ul>
+						<li>{% if username %}
+                               {{ username }}
+                            {% else %}
+                                您还未登录
+                            {% endif %}
+                        </li>
+						<li>
+							{% if username %}
+                            	<a href="{% url 'sanfu:outlogin' %}">退出登录</a>
+                            {% else %}
+                                <a href="{% url 'sanfu:login' %}">登录</a>
+						    {% endif %}
+						</li>
+						<li>
+							<a href="{% url 'sanfu:regiest' %}">免费注册</a>
+						</li>
+						<li>
+							<a href="#" style="background: url({% static 'img/index/nzzz3.jpg' %}) no-repeat;background-position: left;padding-left: 15px;">收藏三福</a>
+						</li>
+						<li>网店热线: 400-893-9833</li>
+						<li style="border: none;height: auto;position: relative;top: -5px;">
+							<a href="#" style="background:url({% static 'img/index/wxjgz.png' %}) no-repeat;width: 65px;height:22px;display: block;"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="header" style="height: auto;overflow: hidden;">
+			<div class="hearderMain" style="margin-top:20px;">
+				<ul>
+					<li>
+						<a href="{% url 'sanfu:index' %}"><img src="{% static 'img/index/std_logo.jpg.png' %}" style="margin-right: 60px;" /></a>
+					</li>
+					<li>
+						<label style="line-height: 80px;font-weight: bold;color:#00ADEF;font-size: 24px;margin-left:400px ;"><span class="icon iconfont" style="font-size: 24px;">&#xeb55; </span>400-893-9833</label>
+					</li>
+				</ul>
+			</div>
+			<hr color="#00ADEF" />
+		</div>
+		<!--
+        	main
+        -->
+        <form action="{% url 'sanfu:regiest' %}" method="post">
+            <div>
+                <div class="regMain">
+                    <div class="regForm">
+                        <div style="border-bottom: 2px solid #eee;margin-bottom: 20px;">
+                            <h3><span class="icon iconfont">&#xeab5;</span> 注册会员 REGISTRATION</h3>
+                        </div>
+                        <div><label>账号</label><input id="name" type="text" placeholder="邮箱/用户名/手机号" name="username"/><i></i></div>
+                        <div><label>密码</label><input id="pwd" type="password" placeholder="" name="password"/><i></i></div>
+                        <div><label>确认密码</label><input id="repwd" type="password" placeholder=""/><i></i></div>
+                        <div><label>验证码</label><input id="txtidcode" type="text" placeholder=""/><span id="idcode"></span></div>
+                        <div><input id="protocol" type="checkbox" name="protocol"/><label style="width: 250px;font-size: 12px;">我已阅读并同意<a href="#">《三福用户注册协议》</a></label></div>
+                        <div><input id="register" type="submit" value="注册"/></div>
+                    </div>
+                    <div class="regAd">
+                        <label>已有三福账号？&nbsp;</label><a href="{% url 'sanfu:login' %}">登录</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+		<!--
+			主footer开始
+        -->
+		<div style="width: 100%;height: auto;overflow: hidden;" class="gradient">
+
+			<div class="ftService">
+				<ul>
+					<li><img src="{% static 'img/index/zpbz.png' %}" />
+						<div>
+							<h2>正品保障</h2><span>三福官方品牌</span></div>
+					</li>
+					<li><img src="{% static 'img/index/mzgx.png' %}" />
+						<div>
+							<h2>50款</h2><span>每周更新</span></div>
+					</li>
+					<li><img src="{% static 'img/index/wlyth.png' %}" />
+						<div>
+							<h2>15天</h2><span>无理由退货</span></div>
+					</li>
+					<li><img src="{% static 'img/index/hyfw.png' %}" />
+						<div>
+							<h2>会员服务</h2><span>门店热线：<b>400-1601-606</b></span><span>网店热线：<b>400-8939-833</b></span></div>
+					</li>
+					<li style="border: none;"><i>银联特约商户</i></li>
+				</ul>
+			</div>
+		</div>
+		<div class="copyright">
+			<p>粤ICP备15015680号 © 2011 SanFu All Rights Reserved.广东三福服装有限公司,禁止非法复制,
+				<a href="http://www.miit.gov.cn/">工信部备案查询</a>
+				<a href="http://webscan.360.cn/index/checkwebsite/url/sanfu.com"><img src="{% static 'img/index/360safe.png' %}" style="position: relative;top: 10px;" /></a>
+			</p>
+		</div>
+		<!--
+			主footer结束
+        -->
+	</body>
+
+</html>

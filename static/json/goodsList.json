@@ -1,0 +1,199 @@
+{
+
+	"goodsCount": 32,
+	"goods": [
+		{
+			"id": "20160912012009_10",
+			"img": "img/newhot/20160912012010_10.jpg",
+			"name": "三福2016男秋哆啦A梦",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_11",
+			"img": "img/newhot/20160912012010_11.jpg",
+			"name": "三福2016女秋荷叶袖杠",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_12",
+			"img": "img/newhot/20160912012010_12.jpg",
+			"name": "三福2016女冬休闲百搭",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_24",
+			"img": "img/newhot/20160912012013_24.jpg",
+			"name": "三福2016贴标多隔层牛",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_25",
+			"img": "img/newhot/20160912012013_25.jpg",
+			"name": "三福2016净色双隔层帆布背包 韩版学院风双肩包",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_26",
+			"img": "img/newhot/20160912012013_26.jpg",
+			"name": "三福2016撞色混款猴子贴标双肩包 学院风PU背包",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012015_32",
+			"img": "img/hotsingle/20160912012015_32.jpg",
+			"name": "三福2015新品彩妆 新肌能蚕丝面膜细腻修复混款",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012015_33",
+			"img": "img/hotsingle/20160912012015_33.jpg",
+			"name": "三福2016 动物面膜 卖萌神器提亮匀净水润",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012015_34",
+			"img": "img/hotsingle/20160912012015_34.jpg",
+			"name": "三福2016新品盒装面贴 修护锁水蚕丝面膜 正品5片装",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012015_35",
+			"img": "img/hotsingle/20160912012015_35.jpg",
+			"name": "三福2015新品 保湿补水面膜贴 八杯水/小黄瓜铁盒12片 送保湿水",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012015_36",
+			"img": "img/hotsingle/20160912012015_36.jpg",
+			"name": "三福经典浓密彩妆美色宣言-羽绒睫毛膏",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012016_37",
+			"img": "img/hotsingle/20160912012016_37.jpg",
+			"name": "三福2015新品彩妆 睫毛膏 3D蚕丝睫毛膏 不晕染自然卷翘 正品",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012016_38",
+			"img": "img/hotsingle/20160912012016_38.jpg",
+			"name": "三福2015新品彩妆正品 眼线水笔防晕染眼线笔防水防汗眼线液笔",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012016_39",
+			"img": "img/hotsingle/20160912012016_39.jpg",
+			"name": "三福2015新品彩妆 持久眼线水笔魅惑浓黑易干防水不晕染",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012028_94",
+			"img": "img/womanspic/20160912012028_94.jpg",
+			"name": "三福2016女秋净色翻领薄外套 中长款七分袖风衣",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012028_95",
+			"img": "img/womanspic/20160912012028_95.jpg",
+			"name": "三福2016女冬纯色翻领夹克 韩版机车修身厚外套",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012028_96",
+			"img": "img/womanspic/20160912012028_96.jpg",
+			"name": "三福2016女秋后背字母刺绣双口袋牛仔外套 百搭夹克",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012028_97",
+			"img": "img/womanspic/20160912012028_97.jpg",
+			"name": "三福2016女冬后背卡通人物夹克 机车修身厚外套",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012028_98",
+			"img": "img/womanspic/20160912012028_98.jpg",
+			"name": "三福2016女秋字母贴布薄外套 韩版休闲工装夹克",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012029_99",
+			"img": "img/womanspic/20160912012029_99.jpg",
+			"name": "三福2016女秋花朵刺绣磨破毛边牛仔外套 百搭夹克",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012029_100",
+			"img": "img/womanspic/20160912012029_100.jpg",
+			"name": "三福2016女秋珠片刺绣牛仔马甲 无袖翻领古铜扣外套",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012029_101",
+			"img": "img/womanspic/20160912012029_101.jpg",
+			"name": "三福2016女秋职业OL套装 翻领无袖外套净色短裤",
+			"originalPrice": 399,
+			"presentPrice": 299
+		}, {
+			"id": "20160912012009_21",
+			"img": "img/newhot/20160912012012_21.jpg",
+			"name": "三福2016女冬净色不规",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_22",
+			"img": "img/newhot/20160912012013_22.jpg",
+			"name": "三福2016女冬净色拉链显瘦A字裙 韩版百搭半身裙",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_23",
+			"img": "img/newhot/20160912012013_23.jpg",
+			"name": "三福2016女字母贴标学院双肩包 韩版休闲单肩包",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_24",
+			"img": "img/newhot/20160912012013_24.jpg",
+			"name": "三福2016贴标多隔层牛",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_25",
+			"img": "img/newhot/20160912012013_25.jpg",
+			"name": "三福2016净色双隔层帆布背包 韩版学院风双肩包",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_26",
+			"img": "img/newhot/20160912012013_26.jpg",
+			"name": "三福2016撞色混款猴子贴标双肩包 学院风PU背包",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_27",
+			"img": "img/newhot/20160912012014_27.jpg",
+			"name": "三福2016女流苏木球双肩包 韩版学院风休闲背包",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_28",
+			"img": "img/newhot/20160912012014_28.jpg",
+			"name": "三福2016女净色流苏纽扣斜挎包 韩版迷你PU单肩",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_29",
+			"img": "img/newhot/20160912012014_29.jpg",
+			"name": "三福2016女净色流苏休闲单肩包韩版百搭斜挎",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}, {
+			"id": "20160912012009_30",
+			"img": "img/newhot/20160912012014_30.jpg",
+			"name": "三福2016女卡通动物形状链条单肩包 韩版斜挎",
+			"originalPrice": 99,
+			"presentPrice": 79
+		}
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"bannerimg": [
+		{
+			"url": "img/index/banner.jpg"
+		}, {
+			"url": "img/index/banner1.jpg"
+		}, {
+			"url": "img/index/banner2.jpg"
+		}
+	]
+}

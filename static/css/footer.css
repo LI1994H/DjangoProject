@@ -1,0 +1,125 @@
+.footerAd {
+	width: 1000px;
+	height: 130px;
+	margin: 0 auto;
+}
+
+.ftService {
+	width: 1000px;
+	height: 70px;
+	margin: 0 auto;
+}
+
+.ftService ul li {
+	border-right: 1px solid #d4d4d4;
+	margin: 20px 0px;
+	padding: 0 15px;
+	height: 70px;
+	float: left;
+}
+
+.ftService ul li div {
+	padding: 10px;
+	float: right;
+	font-family: "微软雅黑";
+}
+
+.ftService ul li div h2 {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.ftService ul li div b {
+	color: black;
+}
+
+.ftService ul li i {
+	background: url(../img/index/yltysh.png) no-repeat left;
+	font-family: "微软雅黑";
+	font-size: 18px;
+	padding-left: 45px;
+	font-weight: 400;
+	line-height: 70px;
+	color: #015092;
+}
+
+.ftService ul li div span {
+	font-size: 12px;
+	color: #666;
+	display: block;
+}
+
+.ftNav {
+	width: 950px;
+	height: 185px;
+	margin: 0 auto;
+}
+
+.ftNavTitle {
+	display: block;
+	height: 70px;
+	border-bottom: 1px solid #93cbe4;
+}
+
+.ftNavTitle li {
+	padding: 10px;
+	padding-right:25px ;
+	padding-top: 0px;
+	width: 120px;
+	height: 20px;
+	line-height: 20px;
+	float: left;
+}
+
+.ftNavTitle li label {
+	display: inline-block;
+	height: 20px;
+	font-size: 12px;
+}
+
+.ftNavMsg {
+	width: 120px;
+	height: 100px;
+	font-size: 12px;
+	padding: 10px;
+	padding-right:25px ;
+	float: left;
+}
+
+.ftNavMsg li {
+	height: 20px;
+	line-height: 20px;
+}
+
+.ftNavMsg a {
+	text-decoration: none;
+	color: #666;
+	background: url(../img/index/helpico1.png) no-repeat left;
+	padding-left: 20px;
+}
+
+.ftNavMsg a:hover {
+	color: #1080b0;
+	background: url(../img/index/helpico2.png) no-repeat left;
+}
+
+.copyright {
+	width: 100%;
+	height: 50px;
+	background-color: #00ADEF;
+	text-align: center;
+	font-size: 12px;
+	color: white;
+	line-height: 50px;
+}
+
+.copyright a {
+	color: white;
+	text-decoration: none;
+}
+
+.copyright a:hover {
+	text-decoration: underline;
+}
+
+.copyright

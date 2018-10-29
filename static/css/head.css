@@ -1,0 +1,379 @@
+* {
+	font-family: "微软雅黑";
+}
+
+body,
+html,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+li {
+	list-style: none;
+}
+
+.loginbar {
+	margin: 0 auto;
+	width: 100%;
+	height: 35px;
+	background-image: url(../img/index/loginbar.png);
+	background-repeat-x: inherit;
+}
+
+.loginbarMain {
+	margin: 0 auto;
+	width: 1000px;
+	height: 35px;
+}
+
+.loginbarMain div {
+	float: right;
+	margin-top: 12px;
+}
+
+.loginbarMain div li {
+	height: 12px;
+	float: left;
+	font-size: 12px;
+	padding: 0 15px;
+	color: #666;
+	border-right: 1px dotted #666;
+}
+
+.loginbarMain div li a {
+	text-decoration: none;
+	color: #666666;
+}
+
+.loginbarMain div li a:hover {
+	color: red;
+}
+
+.header {
+	margin: 0 auto;
+	width: 100%;
+	height: 80px;
+}
+
+.hearderMain {
+	margin: 0 auto;
+	width: 1000px;
+	height: 80px;
+}
+
+.hearderMain ul li {
+	height: 80px;
+	float: left;
+	padding: 0 31px 0 0;
+}
+
+.hearderMain ul li>a>img {
+	width: 225px;
+	height: 80px;
+}
+
+.search {
+	width: 450px;
+	height: 30px;
+	margin-top: 27px;
+}
+
+.search input[type='text'] {
+	border-radius: 2px;
+	width: 345px;
+	height: 28px;
+	border: none;
+	border: 1px solid #00adef;
+}
+
+.search input[type='button'] {
+	width: 101px;
+	height: 28px;
+	border: 1px solid #B7E6FA;
+	background-color: #00ADEF;
+	color: white;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.search div {
+	width: 101px;
+	height: 28px;
+	border: 1px solid #B7E6FA;
+	float: right;
+}
+
+.hShowpingCat {
+	width: 168px;
+	height: 28px;
+	margin-top: 27px;
+	background: #EDEDED;
+	border: 1px solid #B9B9B9;
+	border-radius: 3px;
+	position: relative;
+}
+.hShowpingCat span{
+	background-repeat: no-repeat;
+	font-size:13px ;
+	display: inline-block;
+}
+.hShowpingCat>a{
+	position: absolute;
+	background: url(../img/index/bubble.png) no-repeat;
+	display: block;
+	color: white;
+	width: 25px;
+	height: 25px;
+	top: -15px;
+	left: 70px;
+	font-size: 14px;
+	text-align: center;
+}
+#showpingCatShow{
+	background: white;
+	width: 320px;
+	height: auto;
+	overflow: hidden;
+	position: absolute;
+	top: 29px;
+	right: 0px;
+	border: 1px solid #ddd;
+	display: none;
+	z-index: 2;
+}
+#showpingCatShow p{
+	padding-top: 10px;
+	text-align: center;
+	font-size: 12px;
+}
+#showpingCatShow div{
+	width: 290px;
+	padding: 10px;
+	margin: 5px;
+	height: auto;
+	overflow: hidden;
+}
+#showpingCatShow div>img{
+	width: 62px;
+	height: 62px;
+	border: 1px solid #ddd;
+}
+#showpingCatShow div>span{
+	width: 200px;
+	height: auto;
+	color: #00ADEF;
+	float: right;
+}
+#showpingCatShow div>span>p>b{
+	float: left;
+	color: red;
+}
+#showpingCatShow div>span>p>a{
+	float: right;
+	cursor: pointer;
+	color: red;
+}
+.hSettlement {
+	width: 300px;
+	height: 55px;
+	margin: 10px;
+
+}
+.hSettlement a{
+	width: 180px;
+	height: 32px;
+	display: block;
+	margin-top:25px;
+	margin-left: 120px;
+}
+
+.navH{
+	width: 100%;
+	height: 35px;
+	background-color: #00ADEF;
+}
+.navHMain{
+	width: 1000px;
+	height: 35px;
+	margin: 0 auto;
+	position: relative;
+}
+.navDiv{
+	width: 224px;
+	height: 35px;
+	float: left;
+	color: white;
+	background: url(../img/index/navbgc.png) repeat-x;
+	text-align: center;
+	line-height: 35px;
+}
+.navHMain>div>label{
+	font-size: 14px;
+	background: url(../img/index/qbspfl.png) no-repeat right -1px;
+	padding-right: 40px;
+	letter-spacing: 5px;
+	font-weight: 400;
+}
+.navHMain>ul{
+	width: 700px;
+	height: 35px;
+	float: left;
+}
+.navHMain>ul>li{
+	float: left;
+	line-height: 35px;
+}
+.navHMain>ul>li>a{
+	height: 35px;
+	padding:0 15px;
+	color: white;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 16px;
+}
+.navHMain>ul>li>a:hover{
+	background: #f4a64e;
+}
+.action{
+	background: #fa8d14;
+}
+#navVMain{
+	width: 224px;
+	height: 440px;
+	background: #f0f0f0;
+	position: absolute;
+	top: 35px;
+	z-index: 2;
+}
+#navVMain>ul{
+	width: 224px;
+	height: auto;
+}
+
+#navVMain>ul>li{
+	width: 224px;
+	height: 86px;
+	position: relative;
+
+
+}
+#navVMain h3{
+	padding-top: 5px;
+}
+#navVMain a:hover{
+	color: red;
+}
+#navVMain h3 a{
+	cursor: pointer;
+	color: #666;
+	font-size: 15px;
+	
+	font-weight: 600;
+}
+#navVMain>ul>li>a{
+	cursor: pointer;
+	color: #666;
+	font-size: 12px;
+	padding: 10px 0px 0px 10px;
+	letter-spacing: 1px;
+	display: inline-block;
+}
+.menu{
+	width: 450px;
+	height: auto;
+	overflow: hidden;
+	background: white;
+	position: absolute;
+	left: 224px;
+	top: 0;
+	z-index: 2;
+	display: none;
+}
+.menu li{
+	width: 430px;
+	padding: 10px;
+	margin:0 5px;
+	border-bottom: 1px solid #f2f2f2;
+	clear: both;
+	float: left;
+}
+.menu .menuName{
+	width: 100px;
+	
+}
+.menu div{
+	width: 320px;
+	float: left;
+}
+.menu div>h5{
+	font-size: 14px;
+}
+.menu a{
+	color: #666;
+	text-decoration: none;
+}
+.menu>li>div>a{
+	font-size: 12px;
+	display: inline-block;
+}
+.navHover{
+	background: #80c6e0!important;
+}
+.scrollLeft{
+	position: fixed;
+	top: 30%;
+	left: 0px;
+	z-index: 3;
+	display: none;
+}
+.slcloseBtn{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: red;
+	width: 20px;
+	height: 20px;
+	opacity: 0.01;
+	cursor: pointer;
+	
+}
+.scrollRight{
+	position: fixed;
+	top: 30%;
+	right: -5px;
+	z-index: 3;
+}
+.scrollRight li{
+	width: 32px;
+	height: 90px;
+	background: #eff;
+	border: 1px solid #e5e5e7;
+	border-radius: 5px;
+	font-size: 12px;
+	color: #666;
+	text-align: center;
+	margin-bottom:15px ;
+	cursor: pointer;
+}
+.scrollRight li span{
+	border-bottom: 1px solid #e5e5e7;
+	padding: 3px;
+	display: block;
+}
+.scrollRight li label{
+	margin: 5px auto;
+	display: block;
+	width:20px;
+	cursor: pointer;
+	line-height: 14px;
+}
