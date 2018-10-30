@@ -80,11 +80,14 @@
                         <div style="border-bottom: 2px solid #eee;margin-bottom: 20px;">
                             <h3><span class="icon iconfont">&#xeab5;</span> 注册会员 REGISTRATION</h3>
                         </div>
-                        <div><label>账号</label><input id="name" type="text" placeholder="邮箱/用户名/手机号" name="username"/><i></i></div>
-                        <div><label>密码</label><input id="pwd" type="password" placeholder="" name="password"/><i></i></div>
+                        <div><label>账号</label><input id="name" type="text" placeholder="邮箱/用户名/手机号" name="username"/><i>邮箱、用户名、手机号不能为空</i></div>
+                        <div><label>密码</label><input id="pwd" type="password" placeholder="" name="password"/><i>请输入6位数以上密码</i></div>
                         <div><label>确认密码</label><input id="repwd" type="password" placeholder=""/><i></i></div>
-                        <div><label>验证码</label><input id="txtidcode" type="text" placeholder=""/><span id="idcode"></span></div>
+                        <div><label>验证码</label><input id="txtidcode" type="text" placeholder=""/><span id="idcode"></span><i id="code"></i></div>
                         <div><input id="protocol" type="checkbox" name="protocol"/><label style="width: 250px;font-size: 12px;">我已阅读并同意<a href="#">《三福用户注册协议》</a></label></div>
+                        {% if im %}
+                            <div id= "usererror">{{ im }}</div>
+                        {% endif %}
                         <div><input id="register" type="submit" value="注册"/></div>
                     </div>
                     <div class="regAd">

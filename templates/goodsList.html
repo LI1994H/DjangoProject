@@ -29,9 +29,17 @@
 			<div class="loginbarMain">
 				<div>
 					<ul>
-						<li>您好，欢迎光临sanfu！</li>
-						<li>
-							<a href="{% url 'sanfu:login' %}">登录</a>
+						<li>{% if username %}
+                               {{ username }}
+                            {% else %}
+                                您还未登录
+                            {% endif %}
+                        </li>
+						<li>{% if username %}
+                            	<a href="{% url 'sanfu:outlogin' %}">退出登录</a>
+                            {% else %}
+                                <a href="{% url 'sanfu:login' %}">登录</a>
+						    {% endif %}
 						</li>
 						<li>
 							<a href="{% url 'sanfu:regiest' %}">免费注册</a>
@@ -78,7 +86,7 @@
 				</div>
 				<ul>
 					<li>
-						<a href="http://10.2.166.37:8000/index.html">首页</a>
+						<a href="{% url 'sanfu:index' %}">首页</a>
 					</li>
 					<li>
 						<a href="#">男装</a>

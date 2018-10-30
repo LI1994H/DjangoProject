@@ -1,30 +1,37 @@
 .banner {
-	width: 100%;
+	width: 1000px;
 	height: 440px;
 	clear: both;
+	margin: auto;
 	position: relative;
+	overflow: hidden;
 }
 
 .bannerImg li {
-	width: 100%;
+	width: 400%;
 	height: 440px;
-	overflow: hidden;
 	position: absolute;
 }
-
+.banner img{
+	width: 1000px;
+	height: 440px;
+	float: left;
+}
 .bannerBtn {
 	position: absolute;
-	bottom: 15px;
-	right: 40%;
+	top: 380px;
+	right: 350px;
 	z-index: 1;
 }
 
 .bannerBtn li {
+
 	width: 14px;
 	height: 14px;
 	background-color: #808080;
 	float: left;
-	margin: 5px;
+	margin: 10px;
+	opacity:0.7;
 }
 
 .bannerBtnHover {

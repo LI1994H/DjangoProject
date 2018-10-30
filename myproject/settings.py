@@ -130,7 +130,7 @@ STATICFILES_DIRS = [
 ]
 
 # 使用redis 缓存session
-SESSION_ENGINE = 'redis_sessions.session'
-SESSION_REDIS_HOST = '127.0.0.1'
-SESSION_REDIS_POST = 6379
-SESSION_REDIS_DB = 0  # 选择数据库
+# SESSION_ENGINE = 'redis_sessions.session'
+# SESSION_REDIS_HOST = '127.0.0.1'
+# SESSION_REDIS_POST = 6379
+# SESSION_REDIS_DB = 0  # 选择数据库

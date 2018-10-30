@@ -86,7 +86,7 @@
 				</div>
 				<ul>
 					<li>
-						<a href="#" style="background-color:#FA8D14 ;">首页</a>
+						<a href="{% url 'sanfu:index' %}" style="background-color:#FA8D14 ;">首页</a>
 					</li>
 					<li>
 						<a href="#">男装</a>
@@ -95,7 +95,7 @@
 						<a href="#">女装</a>
 					</li>
 					<li style="position: relative;">
-						<a href="http://10.2.166.37:8000/goodsList.html">新品</a><img src="{% static 'img/index/new.png' %}" style="position: absolute;left:30px;top: -10px;" /></li>
+						<a href="{% url 'sanfu:goodList' %}">新品</a><img src="{% static 'img/index/new.png' %}" style="position: absolute;left:30px;top: -10px;" /></li>
 					<li>
 						<a href="#">热销</a>
 					</li>
@@ -521,10 +521,15 @@
 				<div class="banner">
 					<ul class="bannerBtn">
 						<li></li>
-						<li></li>
+                        <li></li>
 						<li></li>
 					</ul>
 					<ul class="bannerImg">
+                        <li id="banner">
+                        {% for foo in urllist %}
+                            <a href=""><img src="{{ foo }}" alt=""></a>
+                        {% endfor %}
+                        </li>
 					</ul>
 				</div>
 				<div class="contextMain">
@@ -560,7 +565,7 @@
 				<!--
 			主footer开始
         -->
-				<div style="width: 100%;height: auto;overflow: hidden;" class="gradient">
+				<div  class="gradient">
 					<div class="footerAd">
 						<a href="#"><img src="{% static 'img/index/0bd489ae-91bf-457c-a0f6-78c3b8193724.jpg' %}" /></a>
 					</div>

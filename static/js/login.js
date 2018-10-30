@@ -27,10 +27,10 @@ $(function() {
 				$("#loginerror").text("");
 				if(remenber){
 					$.cookie("localUser",name,{expires:7,path:"/"});
-				}	
+				}
 				alert(data.msg);
 				window.location.href = "http://10.2.166.37:8000/index.html";
-				
+
 			}else{
 				$("#loginerror").text("").text(data.msg);
 			};

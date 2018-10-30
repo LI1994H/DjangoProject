@@ -2,12 +2,13 @@
 	width: 1000px;
 	height: 130px;
 	margin: 0 auto;
+
 }
 
 .ftService {
 	width: 1000px;
 	height: 70px;
-	margin: 0 auto;
+	margin: auto;
 }
 
 .ftService ul li {
@@ -122,4 +123,10 @@
 	text-decoration: underline;
 }
 
-.copyright
+.copyright{
+
+}
+.gradient{
+	width: 100%;
+	margin: auto;
+}

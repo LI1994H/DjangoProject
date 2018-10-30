@@ -5,7 +5,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
-from sanfu.models import User
+from sanfu.models import User, Banner
+
 
 # 加密
 def generate_password(password):
@@ -16,11 +17,16 @@ def generate_password(password):
 def index(request):
     token = request.COOKIES.get('token')
     users = User.objects.filter(token=token)
+    banner = Banner.objects.all()
+    urllist = []
+    for i in banner:
+        urllist.append('static/'+i.url)
+        print(urllist)
     if users.exists():
         user = users.first()
-        return render(request, 'index.html', context={'username':user.username})
+        return render(request, 'index.html', context={'username':user.username,'urllist':urllist})
     else:
-        return render(request,'index.html')
+        return render(request,'index.html',context={'urllist':urllist})
 
 
 def login(request):
@@ -71,14 +77,12 @@ def regiest(request):
             user.token = uuid.uuid5(uuid.uuid4(), username)
             user.save()
             response = render_to_response('index.html', context={'username': user.username})
-            # 状态保持 默认两周
             response.set_cookie('token',user.token)
 
             return response
         except Exception as e:
-            return HttpResponse('注册失败 用户名已存在')
-
-
+            im = '注册失败 用户名已存在'
+            return render(request,'regiest.html', context={'im': im})
 
 def outlogin(request):
     response = redirect('sanfu:index')

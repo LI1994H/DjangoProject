@@ -7,3 +7,5 @@ class User(models.Model):
     # 令牌
     token = models.CharField(max_length=256, default='')
 
+class Banner(models.Model):
+    url = models.CharField(max_length=256)

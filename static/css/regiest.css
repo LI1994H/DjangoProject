@@ -86,3 +86,11 @@
 #txtidcode{
 	width: 78px;
 }
+#usererror{
+	padding: 0;
+	padding-left: 110px;
+	height: 20px;
+	font-size: 10px;
+	color:red;
+
+}

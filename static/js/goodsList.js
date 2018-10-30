@@ -21,9 +21,9 @@ $(function() {
 		}
 		$(".glcmContent>div").click(function(){
 			var id = $(this).attr("goodsId");
-			console.log(111);
+			// console.log(111);
 			//window.location.href="http://10.2.166.37:8000/goodsMsg.html?id="+id;
-			window.location.href="http://10.2.166.37:8000/goodsMsg.html?id=goods1";
+			// window.location.href="http://10.2.166.37:8000/goodsMsg.html?id=goods1";
 		});
 	});
 
