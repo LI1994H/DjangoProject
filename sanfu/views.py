@@ -78,7 +78,7 @@ def regiest(request):
             # token 生成
             user.token = uuid.uuid5(uuid.uuid4(), username)
             user.save()
-            response = render_to_response('index.html', context={'username': user.username})
+            response = redirect('sanfu:index')
             response.set_cookie('token',user.token)
             return response
         except Exception as e:
