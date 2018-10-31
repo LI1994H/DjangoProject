@@ -56,11 +56,6 @@ $(function(){
     var timer =  setInterval(function(){
         count++;
         move();
-        if (count === 3) {
-                $(".bannerBtn>li").eq(0).css({"background":"blue"}).siblings().css({"background":"#808080"})
-            }else {
-                $(".bannerBtn>li").eq(count).css({"background":"blue"}).siblings().css({"background":"#808080"})
-            }
     },2000);
     $("#banner,.bannerBtn").mouseenter(function(){
         clearInterval(timer)
@@ -72,28 +67,34 @@ $(function(){
         },2000)
     });
     function move() {
-        if (count < 0) {
-            //不使用动画,移动到最后一张图
-            $("#banner").css("left", -1000* ($("#banner").length - 1) + "px");
-            //再从最后这个1移动到前面的4
-            //从倒数第1张,移到倒数第2张
-            count = $("#banner").length - 2
-        }
-
-        //到达最后一个
+        // if (count < 0) {
+        //     //不使用动画,移动到最后一张图
+        //     $("#banner").css("left", -1000* 3 + "px");
+        //     //再从最后这个1移动到前面的4
+        //     //从倒数第1张,移到倒数第2张
+        //     count = $("#banner").length - 2
         if (count >= 4) {
             $("#banner").css("left", "0");  //不使用动画归零
             count = 1                //归零后的下一张,还是第二张图,但是1*liWidth整个偏移量就是第二张图
         }
-        $("#banner").animate({left: -count*1000+'px'});
+        // }
+        if (count === 3) {
+            $(".bannerBtn>li").eq(0).css({"background":"blue"}).siblings().css({"background":"#808080"})
+        }else {
+            $(".bannerBtn>li").eq(count).css({"background":"blue"}).siblings().css({"background":"#808080"})
+        }
+        //到达最后一个
 
+        $("#banner").animate({left: -count*1000+'px'});
     }
     $(".bannerBtn>li").mouseenter(function(){
 				//高亮
 				$(this).css({"background":"blue"}).siblings().css({"background":"#808080"});
 
 				//切图
-				$("#banner").css("left",($(this).index() * -1000+"px"))
+				$("#banner").css("left",($(this).index() * -1000+"px"));
+				count = $(this).index()
+
 			});
 
 	//新品热推
