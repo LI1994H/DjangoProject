@@ -1,10 +1,12 @@
 import hashlib
+import os
 import uuid
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
+from myproject import settings
 from sanfu.models import User, Banner
 
 
@@ -15,19 +17,18 @@ def generate_password(password):
     return sha.hexdigest()
 
 def index(request):
-    token = request.COOKIES.get('token')
-    users = User.objects.filter(token=token)
     banner = Banner.objects.all()
     urllist = []
     for i in banner:
-        urllist.append('static/'+i.url)
-        print(urllist)
+        urllist.append('static/' + i.url)
+    token = request.COOKIES.get('token')
+    users = User.objects.filter(token=token)
     if users.exists():
         user = users.first()
-        return render(request, 'index.html', context={'username':user.username,'urllist':urllist})
+        headImg = 'static/img/headImg/'+ user.userhead
+        return render(request, 'index.html', context={'username':user.username,'urllist':urllist,'userhead':headImg})
     else:
         return render(request,'index.html',context={'urllist':urllist})
-
 
 def login(request):
     if request.method == 'GET':
@@ -39,7 +40,8 @@ def login(request):
         if users.count():
             user = users.first()
             user.token = uuid.uuid5(uuid.uuid4(),username)
-            response = render_to_response('index.html',context={'username':username})
+            user.save()
+            response = redirect('sanfu:index')
             response.set_cookie('token', user.token)
             return response
         else:
@@ -78,7 +80,6 @@ def regiest(request):
             user.save()
             response = render_to_response('index.html', context={'username': user.username})
             response.set_cookie('token',user.token)
-
             return response
         except Exception as e:
             im = '注册失败 用户名已存在'
@@ -88,3 +89,24 @@ def outlogin(request):
     response = redirect('sanfu:index')
     response.delete_cookie('token')
     return response
+
+
+def uploadhead(request):
+    if request.method == 'GET':
+        return render(request, 'uploadhead.html')
+    elif request.method == 'POST':
+        file = request.FILES.get('userhead')
+        token = request.COOKIES.get('token')
+        users = User.objects.filter(token=token)
+        user = users.first()
+        filename = user.username + '-' + file.name
+        filepath = os.path.join(settings.MEDIA_ROOT, filename)
+
+        with open(filepath, 'wb') as fp:
+            for item in file.chunks():
+                fp.write(item)
+        fp.close()
+        user.userhead = filename
+        user.save()
+        response = redirect('sanfu:index')
+        return response

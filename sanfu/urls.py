@@ -9,5 +9,6 @@ urlpatterns = [
     url(r'^goodsList/$', views.goodsList, name='goodList'),
     url(r'goodsMsg/', views.goodMsg, name='goodsMsg'),
     url(r'^regiest/$',views.regiest, name='regiest' ),
-    url(r'^outlogin/$',views.outlogin,name='outlogin')
+    url(r'^outlogin/$',views.outlogin,name='outlogin'),
+    url(r'^uploadhead/$',views.uploadhead,name='uploadhead')
 ]

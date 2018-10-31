@@ -35,6 +35,13 @@
                                 您还未登录
                             {% endif %}
                         </li>
+                        {% if userhead %}
+                        <li id="userhead">
+                            <a href="{% url 'sanfu:uploadhead' %}">
+                                <img  src={{ userhead }} alt="">
+                            </a>
+                        </li>
+                        {% endif %}
 						<li>{% if username %}
                             	<a href="{% url 'sanfu:outlogin' %}">退出登录</a>
                             {% else %}

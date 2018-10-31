@@ -67,12 +67,6 @@ $(function(){
         },2000)
     });
     function move() {
-        // if (count < 0) {
-        //     //不使用动画,移动到最后一张图
-        //     $("#banner").css("left", -1000* 3 + "px");
-        //     //再从最后这个1移动到前面的4
-        //     //从倒数第1张,移到倒数第2张
-        //     count = $("#banner").length - 2
         if (count >= 4) {
             $("#banner").css("left", "0");  //不使用动画归零
             count = 1                //归零后的下一张,还是第二张图,但是1*liWidth整个偏移量就是第二张图

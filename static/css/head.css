@@ -38,6 +38,9 @@ li {
 
 .loginbarMain div {
 	float: right;
+
+}
+.loginbarMain li{
 	margin-top: 12px;
 }
 
@@ -376,4 +379,18 @@ li {
 	width:20px;
 	cursor: pointer;
 	line-height: 14px;
+}
+#userhead{
+	margin-top:1px;
+	margin-left: -2px;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	border: 2px solid grey;
+	border-radius: 50%;
+	overflow: hidden;
+
+}
+#userhead img{
+	width: 30px;
 }

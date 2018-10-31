@@ -4,6 +4,7 @@ from django.db import models
 class User(models.Model):
     username = models.CharField(max_length=80, unique=True)
     userpassword = models.CharField(max_length=256)
+    userhead = models.CharField(max_length=256,default='defaultHead.jpg')
     # 令牌
     token = models.CharField(max_length=256, default='')
 
