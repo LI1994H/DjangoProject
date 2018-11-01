@@ -52,7 +52,7 @@ $(function(){
     var $newa = $("#banner a").first().clone();
     $("#banner").append($newa);
     var  count = 0;
-    $(".bannerBtn>li").eq(count).css({"background":"blue"}).siblings().css({"background":"#808080"})
+    $(".bannerBtn>li").eq(count).css({"background":"blue"}).siblings().css({"background":"#808080"});
     var timer =  setInterval(function(){
         count++;
         move();
@@ -69,7 +69,7 @@ $(function(){
     function move() {
         if (count >= 4) {
             $("#banner").css("left", "0");  //不使用动画归零
-            count = 1                //归零后的下一张,还是第二张图,但是1*liWidth整个偏移量就是第二张图
+            count = 1                //归零后的下一张,还是第二张图,但是整个偏移量就是第二张图
         }
         // }
         if (count === 3) {
@@ -91,25 +91,25 @@ $(function(){
 
 			});
 
-	//新品热推
-	$.get("json/newHot.json",function(data){
-		creatGoods(data,0);
-	});
-	//热销单品
-	$.get("json/hotSingleProduct.json",function(data){
-		$(".contextBody").eq(1).append("<div class='cbbanner'><a><img src="+data.bannerUrl+"></a></div>");
-		creatGoods(data,1);
-	});
-	//男装
-	$.get("json/mens.json",function(data){
-		$(".contextBody").eq(2).append("<div class='cbbanner'><a><img src="+data.bannerUrl+"></a></div>");
-		creatGoods(data,2);
-	});
-	//女装
-	$.get("json/womens.json",function(data){
-		$(".contextBody").eq(3).append("<div class='cbbanner'><a><img src="+data.bannerUrl+"></a></div>");
-		creatGoods(data,3);
-	});
+	// //新品热推
+	// $.get("json/newHot.json",function(data){
+	// 	creatGoods(data,0);
+	// });
+	// //热销单品
+	// $.get("json/hotSingleProduct.json",function(data){
+	// 	$(".contextBody").eq(1).append("<div class='cbbanner'><a><img src="+data.bannerUrl+"></a></div>");
+	// 	creatGoods(data,1);
+	// });
+	// //男装
+	// $.get("json/mens.json",function(data){
+	// 	$(".contextBody").eq(2).append("<div class='cbbanner'><a><img src="+data.bannerUrl+"></a></div>");
+	// 	creatGoods(data,2);
+	// });
+	// //女装
+	// $.get("json/womens.json",function(data){
+	// 	$(".contextBody").eq(3).append("<div class='cbbanner'><a><img src="+data.bannerUrl+"></a></div>");
+	// 	creatGoods(data,3);
+	// });
 	// function creatGoods(data,index){
 	// 	var goodsArr = data.goods;
 	// 	for(var i=0;i<goodsArr.length;i++){

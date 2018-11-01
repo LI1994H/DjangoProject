@@ -1,5 +1,6 @@
 import hashlib
 import os
+import random
 import uuid
 
 from django.http import HttpResponse
@@ -7,7 +8,7 @@ from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from myproject import settings
-from sanfu.models import User, Banner
+from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens
 
 
 # 加密
@@ -17,18 +18,51 @@ def generate_password(password):
     return sha.hexdigest()
 
 def index(request):
-    banner = Banner.objects.all()
+    banners = Banner.objects.all()
     urllist = []
-    for i in banner:
-        urllist.append('static/' + i.url)
+    for banner in banners:
+        urllist.append('static/' + banner.url)
     token = request.COOKIES.get('token')
     users = User.objects.filter(token=token)
+
+    # 随机选择5个商品
+    def randomgoods(data):
+        randomnum = range(0, len(data))
+        num = random.sample(randomnum, 4)
+        goods = []
+        for i in num:
+            goods.append(data[i])
+        return goods
+    # 热卖新品数据
+    allnewhots = Newhot.objects.all()
+    newhots = randomgoods(allnewhots)
+    # 热卖单品
+    allhotsingle = Hotsingle.objects.all()
+    hostsingles =randomgoods(allhotsingle)
+    # 男装
+    allmens = Mens.objects.all()
+    mens = randomgoods(allmens)
+    # 女装
+    allwomnes = Womens.objects.all()
+    womens = randomgoods(allwomnes)
+    data ={
+        "urllist": urllist,
+        'newhots': newhots,
+        'hostsingles': hostsingles,
+        'mens': mens,
+        'womens': womens,
+    }
     if users.exists():
         user = users.first()
         headImg = 'static/img/headImg/'+ user.userhead
-        return render(request, 'index.html', context={'username':user.username,'urllist':urllist,'userhead':headImg})
+        userdata ={
+            'username': user.username,
+            'userhead': headImg
+        }
+        data.update(userdata)
+        return render(request, 'index.html', context=data)
     else:
-        return render(request,'index.html',context={'urllist':urllist})
+        return render(request,'index.html',context=data)
 
 def login(request):
     if request.method == 'GET':
