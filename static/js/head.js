@@ -32,7 +32,7 @@ $(function(){
 		$(window).unbind("scroll");
 	});
 	//右侧滚动qq
-	$(".scrollRight li").eq(0).css("background","url(img/index/20160912094220_155.png) no-repeat -2px -3px");
+	$(".scrollRight li").eq(0).css("background","url(static/img/index/20160912094220_155.png) no-repeat -2px -3px");
 	$(".scrollRight li").eq(1).mouseenter(function(){
 		$(this).css({"background-color":"#333","color":"white"});
 	})
@@ -41,7 +41,7 @@ $(function(){
 	})
 	//回到顶部
 	$(".scrollRight li").eq(1).click(function(){
-		$("body").animate({"scrollTop":"0px"},1000);
+		$('html,body').animate({ scrollTop: 0 }, 500);
 	})
 	//欢迎观临用户名
 	var localUser = $.cookie("localUser")?$.cookie("localUser"):"";
