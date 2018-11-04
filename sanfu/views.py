@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from myproject import settings
-from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens
+from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail
 
 
 # 加密
@@ -91,8 +91,13 @@ def goodsList(request):
     return render(request,'goodsList.html')
 
 
-def goodMsg(request):
-    return render(request, 'goodsMsg.html')
+def goodMsg(request,goodsid):
+    goodsdatail = Goodsdetail.objects.get(goodsid=goodsid)
+    print(goodsdatail.colorImg1)
+    data = {
+        'goodsdatail':goodsdatail
+    }
+    return render(request, 'goodsMsg.html',context=data)
 
 
 def regiest(request):

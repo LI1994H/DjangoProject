@@ -30,7 +30,6 @@
 	width: 460px;
 	height: 460px;
 	border: 1px solid #EEEEEE;
-	background: url(../img/goods/1.bmp) no-repeat;
 	background-size:100% 100%;
 	position: relative;
 	cursor: move;
@@ -62,7 +61,6 @@
 #maxImg{
 	width: 800px;
 	height: 800px;
-	background: url(../img/goods/1.bmp);
 	position: absolute;
 }
 #cfsmall{

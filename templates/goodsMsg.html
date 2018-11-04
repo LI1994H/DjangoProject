@@ -79,7 +79,7 @@
 				</div>
 				<ul>
 					<li>
-						<a href="http://10.2.166.37:8000/index.html">首页</a>
+						<a href="{% url 'sanfu:index' %}">首页</a>
 					</li>
 					<li>
 						<a href="#">男装</a>
@@ -88,7 +88,7 @@
 						<a href="#">女装</a>
 					</li>
 					<li style="position: relative;">
-						<a href="http://10.2.166.37:8000/goodsList.html" style="background-color:#FA8D14 ;">新品</a><img src="{% static 'img/index/new.png' %}" style="position: absolute;left:30px;top: -10px;" /></li>
+						<a href="{% url 'sanfu:goodList' %}" style="background-color:#FA8D14 ;">新品</a><img src="{% static 'img/index/new.png' %}" style="position: absolute;left:30px;top: -10px;" /></li>
 					<li>
 						<a href="#">热销</a>
 					</li>
@@ -519,22 +519,22 @@
 				<div class="gmContextMain">
 					<div class="gmcmTitle">
 						<div class="carouselFigure">
-							<div id="minImg">
+							<div id="minImg" style="	background: url({% static goodsdatail.manImg %}) no-repeat; background-size:100% 100%;">
 								<span class="icon iconfont">&#xeb1f;</span>
+                                <div id="maxImg"  style=" background: url({% static goodsdatail.manImg %}) no-repeat; background-size:100% 100%;"></div>
 								<div id="minArea"></div>
 							</div>
 							<div id="maxArea">
-								<div id="maxImg"></div>
 							</div>
 							<div id="cfsmall">
 								<ul>
-									<li style="background: url({% static 'img/goods/11.bmp' %});	background-size: 100% 100%;"></li>
-									<li style="background: url({% static 'img/goods/12.bmp' %});	background-size: 100% 100%;"></li>
-									<li style="background: url({% static 'img/goods/13.bmp' %});	background-size: 100% 100%;"></li>
-									<li style="background: url({% static 'img/goods/14.bmp' %});	background-size: 100% 100%;"></li>
-									<li style="background: url({% static 'img/goods/15.bmp' %});	background-size: 100% 100%;"></li>
-									<li style="background: url({% static 'img/goods/16.bmp' %});	background-size: 100% 100%;"></li>
-									<li style="background: url({% static 'img/goods/17.bmp' %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg1 %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg2 %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg3 %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg4 %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg5 %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg6 %});	background-size: 100% 100%;"></li>
+									<li style="background: url({% static goodsdatail.detailImg7 %});	background-size: 100% 100%;"></li>
 								</ul>
 							</div>
 						</div>
@@ -562,10 +562,10 @@
 								<div class="gmcolor">
 									<label>颜色：</label>
 									<ul>
-										<li style="background: url({% static 'img/goods/11.bmp' %});	background-size: 100% 100%;" colorstyle="深黑色"></li>
-										<li style="background: url({% static 'img/goods/16.bmp' %});	background-size: 100% 100%;" colorstyle="深蓝色"></li>
-										<li style="background: url({% static 'img/goods/17.bmp' %});	background-size: 100% 100%;" colorstyle="酒红色"></li>
-										<li style="background: url({% static 'img/goods/18.bmp' %});	background-size: 100% 100%;" colorstyle="浅灰色"></li>
+										<li style="background: url({% static goodsdatail.colorImg1 %});	background-size: 100% 100%;" colorstyle="深黑色"></li>
+										<li style="background: url({% static goodsdatail.colorImg2 %});	background-size: 100% 100%;" colorstyle="深蓝色"></li>
+										<li style="background: url({% static goodsdatail.colorImg3 %});	background-size: 100% 100%;" colorstyle="酒红色"></li>
+										<li style="background: url({% static goodsdatail.colorImg4 %});	background-size: 100% 100%;" colorstyle="浅灰色"></li>
 									</ul>
 								</div>
 								<div class="gmsize">

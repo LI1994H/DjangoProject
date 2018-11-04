@@ -45,4 +45,25 @@ class Womens(Goods):
     class Meta:
         db_table = 'womens'
 
+class Goodsdetail(models.Model):
+    goodsid = models.CharField(max_length=30)
+    manImg = models.CharField(max_length=50)
+    detailImg1 = models.CharField(max_length=50)
+    detailImg2 = models.CharField(max_length=50)
+    detailImg3 = models.CharField(max_length=50)
+    detailImg4 = models.CharField(max_length=50)
+    detailImg5 = models.CharField(max_length=50)
+    detailImg6 = models.CharField(max_length=50)
+    detailImg7 = models.CharField(max_length=50)
+
+    colorImg1 = models.CharField(max_length=50)
+    colorImg2 = models.CharField(max_length=50)
+    colorImg3 = models.CharField(max_length=50)
+    colorImg4 = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'goodsdatail'
+
+
+
 
