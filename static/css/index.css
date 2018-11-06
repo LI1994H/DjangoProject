@@ -100,7 +100,7 @@
 	cursor: pointer;
 	transition: all 0.5s;
 }
-.contextBody div>img:hover{
+.contextBody div img:hover{
 	-webkit-transform:scale(1.2,1.2);
 	-moz-transform:scale(1.2,1.2);
 

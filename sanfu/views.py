@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from myproject import settings
-from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail
+from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail, GoodList
 
 
 # 加密
@@ -93,9 +93,10 @@ def goodsList(request):
 
 def goodMsg(request,goodsid):
     goodsdatail = Goodsdetail.objects.get(goodsid=goodsid)
-    print(goodsdatail.colorImg1)
+    goodsdata = GoodList.objects.get(goodsid=goodsid)
     data = {
-        'goodsdatail':goodsdatail
+        'goodsdatail':goodsdatail,
+        'goodsdata': goodsdata
     }
     return render(request, 'goodsMsg.html',context=data)
 

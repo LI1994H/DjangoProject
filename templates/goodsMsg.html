@@ -541,7 +541,7 @@
 
 						<div class="gmcmMsg">
 							<div class="gmname">
-								<p>三福2016女冬撞色字母印花针织衫 圆领宽松套头毛衣</p>
+								<p>{{ goodsdata.name }}</p>
 							</div>
 							<div class="gmid">
 								<label>商品编号：362309</label>
@@ -553,10 +553,10 @@
 								<label>活动</label><div><span>实付满99元包邮</span><span>首次购买第一件9折</span><span>秋季新品2件9折</span><span>男女新品首周1件95折</span><span>秋冬新品1件95折</span></div>
 							</div>
 							<div class="gmprice">
-								<label>售价</label><span>￥ 139.00</span>
+								<label>售价</label><span>￥{{ goodsdata.originalPrice }} </span>
 							</div>
 							<div class="gmvip">
-								<label>VIP</label><i>￥125.10</i><span>会员积分满300享9折价</span>
+								<label>VIP</label><i>{{ goodsdata.presentPrice }}</i><span>会员积分满300享9折价</span>
 							</div>
 							<div class="gmchoice">
 								<div class="gmcolor">

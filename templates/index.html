@@ -552,6 +552,7 @@
                         <div>
                             <img src="{% static newhot.img %}">
                             <div class='originalPrice'>
+                                <p><a href='#'>{{ newhot.name }}</a></p>
                                 <p>原价￥<span>{{ newhot.originalPrice }}</span></p>
                             </div>
                                 <div class='presentPrice' style='background: url({% static 'img/index/20160912012045_171.png' %}) no-repeat -3px -5px;'>{{ newhot.presentPrice }}</div>
@@ -568,17 +569,18 @@
 					</div>
 					<div class="contextBody">
                         <div class='cbbanner'><a><img src="{% static 'img/hotsingle/20160912012014_31.jpg'%}"/></a></div>
-                        {% for hostsingle in hostsingles %}
-                        <a href="{% url 'sanfu:goodsMsg' hostsingle.goodsid %}">
-                        <div>
-                            <img src="{% static hostsingle.img %}">
-                            <div class='originalPrice'>
-                                <p>原价￥<span>{{ hostsingle.originalPrice }}</span></p>
+                            {% for hostsingle in hostsingles %}
+                            <a href="{% url 'sanfu:goodsMsg' hostsingle.goodsid %}">
+                            <div>
+                                <img src="{% static hostsingle.img %}">
+                                <div class='originalPrice'>
+                                    <p><a href='#'>{{ hostsingle.name }}</a></p>
+                                    <p>原价￥<span>{{ hostsingle.originalPrice }}</span></p>
+                                </div>
+                                <div class='presentPrice' style='background: url({% static 'img/index/20160912012045_171.png' %}) no-repeat -3px -5px;'>{{ hostsingle.presentPrice }}</div>
                             </div>
-                            <div class='presentPrice' style='background: url({% static 'img/index/20160912012045_171.png' %}) no-repeat -3px -5px;'>{{ hostsingle.presentPrice }}</div>
-                        </div>
-                        </a>
-                        {% endfor %}
+                            </a>
+                            {% endfor %}
                     </div>
 					<div class="contextTitle">
 						<div class="ctDiv">男装</div>
@@ -586,17 +588,17 @@
 					</div>
 					<div class="contextBody">
                         <div class='cbbanner'><a><img src="{% static 'img/manspic/20160912012022_68.jpg' %}"></a></div>
-					    {% for men in mens %}
-                        <a href="{% url 'sanfu:goodsMsg' men.goodsid %}">
-					        <div>
-                            <img src="{% static men.img %}">
-                            <div class='originalPrice'>
-                                <p><a href='#'>{{ man.name }}</a></p><p>原价￥<span>{{ man.originalPrice }}</span></p>
+                            {% for men in mens %}
+                            <a href="{% url 'sanfu:goodsMsg' men.goodsid %}">
+                            <div>
+                                <img src="{% static men.img %}">
+                                <div class='originalPrice'>
+                                    <p><a href='#'>{{ men.name }}</a></p><p>原价￥<span>{{ man.originalPrice }}</span></p>
+                                </div>
+                                <div class='presentPrice' style='background: url({% static 'img/index/20160912094224_174.png' %}) no-repeat -3px -5px;'>{{ men.presentPrice }}</div>
                             </div>
-                            <div class='presentPrice' style='background: url({% static 'img/index/20160912094224_174.png' %}) no-repeat -3px -5px;'>{{ men.presentPrice }}</div>
-                        </div>
-                        </a>
-					    {% endfor %}
+                            </a>
+                            {% endfor %}
                     </div>
                     <div class="contextTitle">
 						<div class="ctDiv">女装</div>
@@ -608,14 +610,15 @@
                         <div class='cbbanner'><a><img src="{% static 'img/womanspic/20160912012027_93.jpg' %}"></a></div>
 					    {% for women in womens %}
                             <a href="{% url 'sanfu:goodsMsg' women.goodsid %}">
-					        <div>
-                            <img src="{% static women.img %}">
-                            <div class='originalPrice'>
-                                <p><a href='#'>{{ woman.name }}</a></p><p>原价￥<span>{{ woman.originalPrice }}</span></p>
+                            <div>
+                                <img src="{% static women.img %}">
+                                <div class='originalPrice'>
+                                    <p><a href='#'>{{ women.name }}</a></p>
+                                    <p>原价￥<span>{{ woman.originalPrice }}</span></p>
+                                </div>
+                                <div class='presentPrice' style='background: url({% static 'img/index/20160912094224_174.png' %}) no-repeat -3px -5px;'>{{ women.presentPrice }}</div>
                             </div>
-                            <div class='presentPrice' style='background: url({% static 'img/index/20160912094224_174.png' %}) no-repeat -3px -5px;'>{{ women.presentPrice }}</div>
-                        </div>
-                        </a>
+                            </a>
 					    {% endfor %}
                     </div>
 				</div>
