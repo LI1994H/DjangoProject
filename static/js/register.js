@@ -13,7 +13,16 @@ $(function() {
 			name.next().text("邮箱、用户名、手机号不能为空");
 			nameAllow = false;
 		}else{
-			nameAllow = true;
+			$.get('/checkaccount/',{'account': $(this).val()},function (response) {
+				if(response.status===0){
+					name.next().text(response.msg);
+					nameAllow = false
+				}else{
+					name.next().text(response.msg);
+					nameAllow = true;
+				}
+            });
+
 		}
 	});
 	pwd.blur(function(){
@@ -58,6 +67,9 @@ $(function() {
 			}
 		}
     });
+
+
+
 
 });
 

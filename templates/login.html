@@ -78,6 +78,7 @@
                                 <li><input type="text" placeholder="请输入卡号/手机号" id="userName" name="loginName"/></li>
                                 <li><input type="password" placeholder="请输入密码" id="passWord" name="loginPwd"/></li>
                                 <li><input type="checkbox" value="1" id="remenberMsg"/><label>记住用户名</label><span id="loginerror"></span></li>
+                                <p>{{ msg }}</p>
                                 <li><input type="submit" value="登录" id="loginBtn"/></li>
                                 <li><div><a href="#">忘记密码？</a> | <a href="{% url 'sanfu:regiest' %}">注册帐号</a></div></li>
                             </form>

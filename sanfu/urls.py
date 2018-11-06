@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'goodsMsg/(\d+[_]\d+)$', views.goodMsg, name='goodsMsg'),
     url(r'^regiest/$',views.regiest, name='regiest' ),
     url(r'^outlogin/$',views.outlogin,name='outlogin'),
-    url(r'^uploadhead/$',views.uploadhead,name='uploadhead')
+    url(r'^uploadhead/$',views.uploadhead,name='uploadhead'),
+    url(r'checkaccount',views.checkaccount,name='checkaccount'),
 ]

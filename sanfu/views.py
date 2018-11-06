@@ -3,7 +3,7 @@ import os
 import random
 import uuid
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
@@ -16,6 +16,7 @@ def generate_password(password):
     sha = hashlib.sha512()
     sha.update(password.encode('utf-8'))
     return sha.hexdigest()
+
 
 def index(request):
     banners = Banner.objects.all()
@@ -33,19 +34,20 @@ def index(request):
         for i in num:
             goods.append(data[i])
         return goods
+
     # 热卖新品数据
     allnewhots = Newhot.objects.all()
     newhots = randomgoods(allnewhots)
     # 热卖单品
     allhotsingle = Hotsingle.objects.all()
-    hostsingles =randomgoods(allhotsingle)
+    hostsingles = randomgoods(allhotsingle)
     # 男装
     allmens = Mens.objects.all()
     mens = randomgoods(allmens)
     # 女装
     allwomnes = Womens.objects.all()
     womens = randomgoods(allwomnes)
-    data ={
+    data = {
         "urllist": urllist,
         'newhots': newhots,
         'hostsingles': hostsingles,
@@ -54,15 +56,16 @@ def index(request):
     }
     if users.exists():
         user = users.first()
-        headImg = 'static/img/headImg/'+ user.userhead
-        userdata ={
+        headImg = 'static/img/headImg/' + user.userhead
+        userdata = {
             'username': user.username,
             'userhead': headImg
         }
         data.update(userdata)
         return render(request, 'index.html', context=data)
     else:
-        return render(request,'index.html',context=data)
+        return render(request, 'index.html', context=data)
+
 
 def login(request):
     if request.method == 'GET':
@@ -73,14 +76,13 @@ def login(request):
         users = User.objects.filter(username=username).filter(userpassword=userpassword)
         if users.count():
             user = users.first()
-            user.token = uuid.uuid5(uuid.uuid4(),username)
+            user.token = uuid.uuid5(uuid.uuid4(), username)
             user.save()
             response = redirect('sanfu:index')
             response.set_cookie('token', user.token)
             return response
         else:
-            response = redirect('sanfu:login')
-            return response
+            return render(request,'login.html',context={'msg':'用户名或密码错误'})
 
 
 def cart(request):
@@ -88,17 +90,18 @@ def cart(request):
 
 
 def goodsList(request):
-    return render(request,'goodsList.html')
+    return render(request, 'goodsList.html')
 
 
-def goodMsg(request,goodsid):
+def goodMsg(request, goodsid):
     goodsdatail = Goodsdetail.objects.get(goodsid=goodsid)
-    goodsdata = GoodList.objects.get(goodsid=goodsid)
+    goodsdata = GoodList.objects.filter(goodsid=goodsid)
+    goodsdata = goodsdata.first()
     data = {
-        'goodsdatail':goodsdatail,
+        'goodsdatail': goodsdatail,
         'goodsdata': goodsdata
     }
-    return render(request, 'goodsMsg.html',context=data)
+    return render(request, 'goodsMsg.html', context=data)
 
 
 def regiest(request):
@@ -119,11 +122,12 @@ def regiest(request):
             user.token = uuid.uuid5(uuid.uuid4(), username)
             user.save()
             response = redirect('sanfu:index')
-            response.set_cookie('token',user.token)
+            response.set_cookie('token', user.token)
             return response
         except Exception as e:
             im = '注册失败 用户名已存在'
-            return render(request,'regiest.html', context={'im': im})
+            return render(request, 'regiest.html', context={'im': im})
+
 
 def outlogin(request):
     response = redirect('sanfu:index')
@@ -150,3 +154,20 @@ def uploadhead(request):
         user.save()
         response = redirect('sanfu:index')
         return response
+
+
+def checkaccount(request):
+    account = request.GET.get('account')
+    user = User.objects.filter(username=account)
+    if user.exists():
+        responseData = {
+            'msg': '账号已被占用',
+            'status': 0
+        }
+        return JsonResponse(responseData)
+    else:
+        responseData = {
+            'msg': '账号可用',
+            'status': 1,
+        }
+        return JsonResponse(responseData)
