@@ -1,9 +1,6 @@
 $(function() {
 	var id = location.search.substring(1);
 	console.log(id);
-	$.post("http://10.2.166.37:8000/goodsMsg_get",id,function(data){
-		console.log(data);
-	});
 	//放大镜
 	var wy = $("#minImg").offset().top;
 	var wx = $("#minImg").offset().left + $("#minImg").width() + 20;
@@ -52,8 +49,8 @@ $(function() {
 	// 改变图片
 	$("#cfsmall ul li").mouseenter(function() {
 		var index = $(this).index() + 1;
-		$("#minImg").css("background-image", "url(img/goods/" + goodsdatail.manImg + ".bmp)");
-		$("#maxImg").css("background-image", "url(img/goods/" + igoodsdatail.manImg + ".bmp)");
+		// $("#minImg").css("background-image","url(img/goods/" + igoodsdatail.manImg + ".bmp)" );
+		// $("#maxImg").css("background-image", "url(img/goods/" + igoodsdatail.manImg + ".bmp)");
 	});
 	var msgcolor = "";
 	var msgsize = "";
@@ -88,65 +85,81 @@ $(function() {
 	$("#addcat").click(function() {
 			if(addcart()) {
 				alert("添加购物车成功");
-				window.location.reload();
+				// window.location.reload();
 			}
-		})
+		});
 		//跳转
 	$("#payMoney").click(function() {
 			if(addcart()){
-				window.location.href = "http://10.2.166.37:8000/cart.html";
+				// window.location.href = "http://10.2.166.37:8000/cart.html";
 			};
 
-		})
+		});
 		//加入购物车方法
 	var addcart = function() {
-		var name = $(".gmname").children("p").text();
+		// var name = $(".gmname").children("p").text();
 		var id = $(".gmid").children("label").text();
 		var price = $(".gmprice").find("span").text();
 		var colorname = $(".gmcolor li[class='gmcolorchecked']").attr("colorstyle");
-		var colorimg = $(".gmcolor li[class='gmcolorchecked']").attr("style");
+		// var colorimg = $(".gmcolor li[class='gmcolorchecked']").attr("style");
 		var size = $(".gmsize span[class='gmsizechecked']").text();
 		var count = $(".gmcount").find("input").val();
+		console.log('名字:'+name+'id:'+id+'价格:'+price+'colorname:'+colorname+'colorimg:'+size+'数量'+count)
 		if(colorname == undefined) {
 			$(".gmmsg span").text("").text("请选择颜色");
-			return 0;
+			// return 0;
 		}
 		if(size == "") {
 			$(".gmmsg span").text("").text("请选择尺寸");
-			return 0;
+			// return 0;
 		}
-		$(".gmmsg span").text("");
-		var cartArr = $.cookie("cart") ? JSON.parse($.cookie("cart")) : [];
-		var i;
-		for(i=0;i<cartArr.length;i++){
-			if(cartArr[i].id==id&&cartArr[i].colorname==colorname&&cartArr[i].size==size){
-				cartArr[i].count=parseInt(cartArr[i].count)+parseInt(count);
-				$.cookie("cart", JSON.stringify(cartArr), {
-				expries: 7,
-				path: "/"
-				});
-				return 1;
+		var goodsMsg = {
+			'id': id,
+			'price':price,
+			'size':size,
+			'count':count,
+			'colorname':colorname,
+		};
+		var ifallow = 0;
+		$get('/addcart/',{'goodsMsg':goodsMsg},function (response) {
+            if ( response.status === 1){
+            	ifallow = 1
 			}
-		}
-		if(i>=cartArr.length){
-			var goodsMsg = {
-			"id": id,
-			"name": name,
-			"price": price,
-			"colorname": colorname,
-			"colorimg": colorimg,
-			"size": size,
-			"count": count
-		}
-		cartArr.push(goodsMsg);
-		$.cookie("cart", JSON.stringify(cartArr), {
-			expries: 7,
-			path: "/"
-		});
-		console.log(cartArr);
-		return 1;
-		}
+        });
+		console.log(ifallow);
+		return ifallow;
+		// $(".gmmsg span").text("");
+		// var cartArr = $.cookie("cart") ? JSON.parse($.cookie("cart")) : [];
+		// var i;
+		// for(i=0;i<cartArr.length;i++){
+		// 	if(cartArr[i].id==id&&cartArr[i].colorname==colorname&&cartArr[i].size==size){
+		// 		cartArr[i].count=parseInt(cartArr[i].count)+parseInt(count);
+		// 		$.cookie("cart", JSON.stringify(cartArr), {
+		// 		expries: 7,
+		// 		path: "/"
+		// 		});
+		// 		return 1;
+		// 	}
+		// }
+		// if(i>=cartArr.length){
+		// 	var goodsMsg = {
+		// 	"id": id,
+		// 	"name": name,
+		// 	"price": price,
+		// 	"colorname": colorname,
+		// 	"colorimg": colorimg,
+		// 	"size": size,
+		// 	"count": count
+		// };
+		// cartArr.push(goodsMsg);
+		// $.cookie("cart", JSON.stringify(cartArr), {
+		// 	expries: 7,
+		// 	path: "/"
+		// });
+		// console.log(cartArr);
+		// return 1;
+		// }
 
 	}
 
-})
+});

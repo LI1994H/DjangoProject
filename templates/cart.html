@@ -28,15 +28,24 @@
 			<div class="loginbarMain">
 				<div>
 					<ul>
-						<li>您好，欢迎光临sanfu！</li>
 						<li>
-							<a href="{% url 'sanfu:login' %}">登录</a>
+                            {{ username }}
+                        </li>
+                        {% if userhead %}
+                        <li id="userhead">
+                            <a href="{% url 'sanfu:uploadhead' %}">
+                                <img src="{{ userhead }}" alt="">
+                            </a>
+                        </li>
+                        {% endif %}
+						<li>
+                            <a href="{% url 'sanfu:outlogin' %}">退出登录</a>
 						</li>
 						<li>
 							<a href="{% url 'sanfu:regiest' %}">免费注册</a>
 						</li>
 						<li>
-							<a href="#" style="background: url({% static "img/index/nzzz3.jpg"%}) no-repeat;background-position: left;padding-left: 15px;">收藏三福</a>
+							<a href="#" style="background: url({% static 'img/index/nzzz3.jpg' %}) no-repeat;background-position: left;padding-left: 15px;">收藏三福</a>
 						</li>
 						<li>网店热线: 400-893-9833</li>
 						<li style="border: none;height: auto;position: relative;top: -5px;">

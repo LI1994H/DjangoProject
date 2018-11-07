@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^regiest/$',views.regiest, name='regiest' ),
     url(r'^outlogin/$',views.outlogin,name='outlogin'),
     url(r'^uploadhead/$',views.uploadhead,name='uploadhead'),
-    url(r'checkaccount',views.checkaccount,name='checkaccount'),
+    url(r'^checkaccount/$',views.checkaccount,name='checkaccount'),
+    url(r'^addcart/$',views.addcart,name='addcart'),
 ]

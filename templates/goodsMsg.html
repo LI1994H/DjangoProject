@@ -511,7 +511,7 @@
                 	主context开始
                 -->
 				<div class="siteMap">
-					<a href="http://10.2.166.37:8020/sanfu/index.html">首页</a>>>
+					<a href="{% url 'sanfu:index' %}">首页</a>>>
 					<a href="#">女装</a>>>
 					<a href="#">针织衫</a>>>
 					<a href="#">套头毛衣</a>
@@ -544,7 +544,7 @@
 								<p>{{ goodsdata.name }}</p>
 							</div>
 							<div class="gmid">
-								<label>商品编号：362309</label>
+								<label>商品编号：{{ goodsdata.goodsid }}</label>
 							</div>
 							<div class="gmevaluate">
 								<label>评价</label><span class="icon iconfont">&#xe911;&#xe911;&#xe911;&#xe911;&#xe911;5分</span>

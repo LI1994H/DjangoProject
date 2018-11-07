@@ -86,7 +86,16 @@ def login(request):
 
 
 def cart(request):
-    return render(request, 'cart.html')
+    token = request.COOKIES.get('token')
+    if token:
+        user = User.objects.get(token=token)
+        userhead = 'static/img/headImg/' + user.userhead
+        data={
+            'username':user.username,
+            'userhead':userhead,
+        }
+        return render(request, 'cart.html',context=data)
+    return render(request, 'login.html')
 
 
 def goodsList(request):
@@ -125,7 +134,7 @@ def regiest(request):
             response.set_cookie('token', user.token)
             return response
         except Exception as e:
-            im = '注册失败 用户名已存在'
+            im = '注册失败'
             return render(request, 'regiest.html', context={'im': im})
 
 
@@ -171,3 +180,7 @@ def checkaccount(request):
             'status': 1,
         }
         return JsonResponse(responseData)
+
+
+def addcart(request):
+    return None

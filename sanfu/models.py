@@ -65,5 +65,19 @@ class Goodsdetail(models.Model):
         db_table = 'goodsdatail'
 
 
+class Cart(models.Model):
+    # 用户
+    user = models.ForeignKey(User)
+    # 商品
+    goods = models.ForeignKey(Goodsdetail)
+    # 商品数量(选择)
+    number = models.IntegerField()
+    # 颜色
+    color = models.CharField(max_length=20)
+    # 大小
+    size = models.CharField(max_length=10)
+    # 是否选中
+    isselect = models.BooleanField(default=True)
 
-
+    class Meta:
+        db_table = 'sanfu_cart'
