@@ -47,6 +47,7 @@ class Womens(Goods):
 
 class Goodsdetail(models.Model):
     goodsid = models.CharField(max_length=30)
+    name = models.CharField(max_length=200)
     manImg = models.CharField(max_length=50)
     detailImg1 = models.CharField(max_length=50)
     detailImg2 = models.CharField(max_length=50)

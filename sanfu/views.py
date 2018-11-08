@@ -90,9 +90,11 @@ def cart(request):
     if token:
         user = User.objects.get(token=token)
         userhead = 'static/img/headImg/' + user.userhead
+        cart = Cart.objects.filter(user=user)
         data = {
             'username': user.username,
             'userhead': userhead,
+            'cart': cart,
         }
         return render(request, 'cart.html', context=data)
     return render(request, 'login.html')

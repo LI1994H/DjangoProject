@@ -84,7 +84,18 @@
         				<th>小计</th>
         				<th>操作</th>
         			</tr>
-        			
+                    {% for cartfoo in cart %}
+                    <tr><td><input type='checkbox'/></td>
+                    <td><img style='{{ cartfoo.goods }}'/></td>
+                    <td><span>" + goods.name + "</span><p>{{ cartfoo.color }},尺码{{ cartfoo.size }}</p></td>
+                    <td><span>{{ cartfoo.price }}元</span></td>
+                    <td><button class='sub'>-</button><input type='text' value='" + goods.count + "'/><span></span><button class='add'>+</button></td>
+                    <td><span>￥" + (count * pricestr) + "元</span></td>
+                    <td><a class='delethis'>删除商品</a></td>
+                    </tr>
+
+                    {% endfor %}
+
         		</table>
         		<div class="cartDele">
         			<button id="deleteGoods"><i class="icon iconfont">&#xea19;</i>删除选中的商品</button><span>商品数量总计：<b>0</b></span>
