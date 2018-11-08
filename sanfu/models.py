@@ -78,6 +78,7 @@ class Cart(models.Model):
     size = models.CharField(max_length=10)
     # 是否选中
     isselect = models.BooleanField(default=True)
+    price = models.IntegerField()
 
     class Meta:
         db_table = 'sanfu_cart'

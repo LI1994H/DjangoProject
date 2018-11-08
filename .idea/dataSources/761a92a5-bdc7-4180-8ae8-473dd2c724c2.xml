@@ -1739,114 +1739,120 @@ model</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="390" parent="251" name="sanfu_cart_goods_id_a0b382c2_fk_goodsdatail_id">
+    <column id="390" parent="251" name="price">
+      <Position>8</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="391" parent="251" name="sanfu_cart_goods_id_a0b382c2_fk_goodsdatail_id">
       <ColNames>goods_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="391" parent="251" name="sanfu_cart_user_id_76237eb8_fk_sanfu_user_id">
+    <index id="392" parent="251" name="sanfu_cart_user_id_76237eb8_fk_sanfu_user_id">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="392" parent="251" name="PRIMARY">
+    <key id="393" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="393" parent="251" name="sanfu_cart_goods_id_a0b382c2_fk_goodsdatail_id">
+    <foreign-key id="394" parent="251" name="sanfu_cart_goods_id_a0b382c2_fk_goodsdatail_id">
       <ColNames>goods_id</ColNames>
       <RefSchemaName>sanfu</RefSchemaName>
       <RefTableName>goodsdatail</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="394" parent="251" name="sanfu_cart_user_id_76237eb8_fk_sanfu_user_id">
+    <foreign-key id="395" parent="251" name="sanfu_cart_user_id_76237eb8_fk_sanfu_user_id">
       <ColNames>user_id</ColNames>
       <RefSchemaName>sanfu</RefSchemaName>
       <RefTableName>sanfu_user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="395" parent="252" name="id">
+    <column id="396" parent="252" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="252" name="username">
+    <column id="397" parent="252" name="username">
       <Position>2</Position>
       <DataType>varchar(80)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="252" name="userpassword">
+    <column id="398" parent="252" name="userpassword">
       <Position>3</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="398" parent="252" name="userhead">
+    <column id="399" parent="252" name="userhead">
       <Position>4</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="399" parent="252" name="token">
+    <column id="400" parent="252" name="token">
       <Position>5</Position>
       <DataType>varchar(256)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="400" parent="252" name="username">
+    <index id="401" parent="252" name="username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="401" parent="252" name="PRIMARY">
+    <key id="402" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="402" parent="252" name="username">
+    <key id="403" parent="252" name="username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>
-    <column id="403" parent="253" name="id">
+    <column id="404" parent="253" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="253" name="goodsid">
+    <column id="405" parent="253" name="goodsid">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="405" parent="253" name="img">
+    <column id="406" parent="253" name="img">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="406" parent="253" name="name">
+    <column id="407" parent="253" name="name">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="407" parent="253" name="originalPrice">
+    <column id="408" parent="253" name="originalPrice">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="408" parent="253" name="presentPrice">
+    <column id="409" parent="253" name="presentPrice">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="409" parent="253" name="PRIMARY">
+    <key id="410" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

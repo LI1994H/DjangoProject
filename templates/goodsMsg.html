@@ -30,14 +30,25 @@
 			<div class="loginbarMain">
 				<div>
 					<ul>
-						<li>您好，欢迎光临sanfu！</li>
+						<li>{% if username %}
+                               {{ username }}
+                            {% else %}
+                                您还未登录
+                            {% endif %}
+                        </li>
 						<li>
-							<a href="{% url 'sanfu:login' %}">登录</a>
+							{% if username %}
+                            	<a href="{% url 'sanfu:outlogin' %}">退出登录</a>
+                            {% else %}
+                                <a href="{% url 'sanfu:login' %}">登录</a>
+						    {% endif %}
 						</li>
 						<li>
 							<a href="{% url 'sanfu:regiest' %}">免费注册</a>
 						</li>
 						<li>
+							<a href="#" style="background: url({% static 'img/index/nzzz3.jpg' %}) no-repeat;background-position: left;padding-left: 15px;">收藏三福</a>
+						</li>
 							<a href="#" style="background: url({% static 'img/index/nzzz3.jpg' %}) no-repeat;background-position: left;padding-left: 15px;">收藏三福</a>
 						</li>
 						<li>网店热线: 400-893-9833</li>
@@ -544,7 +555,7 @@
 								<p>{{ goodsdata.name }}</p>
 							</div>
 							<div class="gmid">
-								<label>商品编号：{{ goodsdata.goodsid }}</label>
+								<label>商品编号：<span>{{ goodsdata.goodsid }}</span></label>
 							</div>
 							<div class="gmevaluate">
 								<label>评价</label><span class="icon iconfont">&#xe911;&#xe911;&#xe911;&#xe911;&#xe911;5分</span>
@@ -553,7 +564,7 @@
 								<label>活动</label><div><span>实付满99元包邮</span><span>首次购买第一件9折</span><span>秋季新品2件9折</span><span>男女新品首周1件95折</span><span>秋冬新品1件95折</span></div>
 							</div>
 							<div class="gmprice">
-								<label>售价</label><span>￥{{ goodsdata.originalPrice }} </span>
+								<label>售价</label><span>￥</span><span>{{ goodsdata.originalPrice }}</span>
 							</div>
 							<div class="gmvip">
 								<label>VIP</label><i>{{ goodsdata.presentPrice }}</i><span>会员积分满300享9折价</span>

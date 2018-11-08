@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from myproject import settings
-from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail, GoodList
+from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail, GoodList, Cart
 
 
 # 加密
@@ -82,7 +82,7 @@ def login(request):
             response.set_cookie('token', user.token)
             return response
         else:
-            return render(request,'login.html',context={'msg':'用户名或密码错误'})
+            return render(request, 'login.html', context={'msg': '用户名或密码错误'})
 
 
 def cart(request):
@@ -90,11 +90,11 @@ def cart(request):
     if token:
         user = User.objects.get(token=token)
         userhead = 'static/img/headImg/' + user.userhead
-        data={
-            'username':user.username,
-            'userhead':userhead,
+        data = {
+            'username': user.username,
+            'userhead': userhead,
         }
-        return render(request, 'cart.html',context=data)
+        return render(request, 'cart.html', context=data)
     return render(request, 'login.html')
 
 
@@ -106,7 +106,10 @@ def goodMsg(request, goodsid):
     goodsdatail = Goodsdetail.objects.get(goodsid=goodsid)
     goodsdata = GoodList.objects.filter(goodsid=goodsid)
     goodsdata = goodsdata.first()
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
     data = {
+        'username': user.username,
         'goodsdatail': goodsdatail,
         'goodsdata': goodsdata
     }
@@ -183,4 +186,32 @@ def checkaccount(request):
 
 
 def addcart(request):
-    return None
+    token = request.COOKIES.get('token')
+    if token:
+        user = User.objects.get(token=token)
+        id = request.GET.get('id')
+        price = request.GET.get('price')
+        size = request.GET.get('size')
+        count = request.GET.get('count')
+        colorname = request.GET.get('colorname')
+        if size and colorname:
+            goods = Goodsdetail.objects.filter(goodsid=id).first()
+            matchcart = Cart.objects.filter(size=size, color=colorname, goods=goods, user=user).first()
+            # print(id, price, size, count, colorname)
+            if matchcart:
+                matchcart.number += int(count)
+                matchcart.save()
+            else:
+                cart = Cart()
+                cart.user = user
+                cart.goods = goods
+                cart.price = price
+                cart.size = size
+                cart.number = count
+                cart.color = colorname
+                cart.save()
+            return JsonResponse({'msg': '添加购物车成功', 'status': 1})
+        else:
+            return JsonResponse({'msg': '添加购物车失败', 'status': -1})
+    else:
+        return JsonResponse({'msg': '用户未登录', 'status': 0})
