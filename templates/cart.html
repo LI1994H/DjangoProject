@@ -85,13 +85,14 @@
         				<th>操作</th>
         			</tr>
                     {% for cartfoo in cart %}
-                    <tr><td><input type='checkbox'/></td>
-                    <td><img style='{{ cartfoo.goods }}'/></td>
-                    <td><span>" + goods.name + "</span><p>{{ cartfoo.color }},尺码{{ cartfoo.size }}</p></td>
-                    <td><span>{{ cartfoo.price }}元</span></td>
-                    <td><button class='sub'>-</button><input type='text' value='" + goods.count + "'/><span></span><button class='add'>+</button></td>
-                    <td><span>￥" + (count * pricestr) + "元</span></td>
-                    <td><a class='delethis'>删除商品</a></td>
+                    <tr class="goodsinfo" goodsid="{{ cartfoo.goods.goodsid }}">
+                        <td><input type='checkbox'/></td>
+                        <td><img src="{% static cartfoo.goods.manImg %}"/></td>
+                        <td><span>{{ cartfoo.goods.name }}</span><p> <span class="color">{{ cartfoo.color }}</span>,尺码 <span class="size">{{ cartfoo.size }}</span></p></td>
+                        <td><span class="price">{{ cartfoo.price }}</span><span>元</span></td>
+                        <td><button class='sub'>-</button><input type='text' class="count" value=' {{ cartfoo.number }}'/><span></span><button class='add'>+</button></td>
+                        <td><span>￥</span><span class='total'></span>元</td>
+                        <td><a class='delethis'>删除商品</a></td>
                     </tr>
 
                     {% endfor %}

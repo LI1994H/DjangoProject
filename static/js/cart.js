@@ -104,3 +104,99 @@
 //     })
 //
 // });
+$(function () {
+	// $.get(/getcart/,function (response) {
+	// 	console.log(response)
+    // })
+	// 小计
+	$('.goodsinfo').each(function () {
+		var price = $(this).find('.price').text();
+		var count = $(this).find('.count').val();
+		$(this).find('.total').html((price*count).toFixed(2))
+    });
+
+	$('.add').click(function () {
+		var $that = $(this);
+		var size = $(this).parents('.goodsinfo').find('.size').text();
+		var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
+		var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
+		$.get(/changecartcount/,{'goodsid':goodsid,'size':size,'color':color,'who':'add'},function (repsonse) {
+			var price = $that.parents('.goodsinfo').find('.price').text();
+			$that.parents('.goodsinfo').find('.count').val(repsonse.count);
+			$that.parents('.goodsinfo').find('.total').html((price*repsonse.count).toFixed(2));
+        })
+    });
+
+	$('.sub').click(function () {
+		var $that = $(this);
+		var size = $(this).parents('.goodsinfo').find('.size').text();
+		var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
+		var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
+		$.get(/changecartcount/,{'goodsid':goodsid,'size':size,'color':color,'who':'sub'},function (repsonse) {
+			var price = $that.parents('.goodsinfo').find('.price').text();
+			$that.parents('.goodsinfo').find('.count').val(repsonse.count);
+			$that.parents('.goodsinfo').find('.total').html((price*repsonse.count).toFixed(2));
+        })
+    });
+
+	var allnum = 0;
+	var total = 0;
+		$(".cartDele b").text(allnum);
+	$(".cartToal b").text(total);
+	//全选按钮事件
+	$("#checkall").click(function () {
+		if ($("#checkall").prop("checked") == true) {
+			$("#mycart").find("input[type='checkbox']").attr("checked", true);
+		}
+	})
+	$("#mycart").find("input[type='checkbox']").click(function () {
+		if ($(this).prop("checked") == false) {
+			$("#checkall").attr("checked", false);
+		}
+	});
+	//删除某行商品
+	$(".delethis").click(function () {
+		$(this).parents("tr").remove();
+		var i = $(this).index();
+		bindgoods(i);
+	});
+	//删除选中商品
+	$("#deleteGoods").click(function () {
+		for (var k = 0; k <= cartArr.length; k++) {
+			if ($("#mycart tr td").parent("tr").eq(k).find("input[type='checkbox']").prop("checked") == true) {
+				$("#mycart tr td").parent("tr").eq(k).remove();
+				bindgoods(k);
+				k--;
+			}
+		}
+
+	});
+
+	// if (cartArr.length == 0) {
+//         var html = "<tr><td colspan='7'>购物车中没有商品记录！</td></tr>";
+//         $("#mycart").append(html);
+//
+//     } else {
+//         //console.log(cartArr);
+//         var allnum = 0;
+//         var total = 0;
+//         for (var i = 0; i < cartArr.length; i++) {
+//             var goods = cartArr[i];
+//             allnum += parseInt(goods.count);
+//             var pricestr = goods.price;
+//             pricestr = pricestr.substring(1);
+//             var count = goods.count;
+//             var html = "<tr><td><input type='checkbox'/></td>";
+//             html += "<td><img style='" + goods.colorimg + "'/></td>";
+//             html += "<td><span>" + goods.name + "</span><p>" + goods.colorname + "," + goods.size + "</p></td>";
+//             html += "<td><span>" + goods.price + "元</span></td>";
+//             html += "<td><button class='sub'>-</button><input type='text' value='" + goods.count + "'/><span></span><button class='add'>+</button></td>";
+//             html += "<td><span>￥" + (count * pricestr) + "元</span></td>";
+//             html += "<td><a class='delethis'>删除商品</a></td></tr>";
+//             $("#mycart").find().remove().end().append(html);
+//             total += count * pricestr;
+//         }
+//         //全部数量和总价
+//         $(".cartDele b").text(allnum);
+//         $(".cartToal b").text(total);
+});

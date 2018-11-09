@@ -199,7 +199,6 @@ def addcart(request):
         if size and colorname:
             goods = Goodsdetail.objects.filter(goodsid=id).first()
             matchcart = Cart.objects.filter(size=size, color=colorname, goods=goods, user=user).first()
-            # print(id, price, size, count, colorname)
             if matchcart:
                 matchcart.number += int(count)
                 matchcart.save()
@@ -217,3 +216,24 @@ def addcart(request):
             return JsonResponse({'msg': '添加购物车失败', 'status': -1})
     else:
         return JsonResponse({'msg': '用户未登录', 'status': 0})
+
+
+def changecartcount(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    goodsid = request.GET.get('goodsid')
+    color = request.GET.get('color')
+    size = request.GET.get('size')
+    who = request.GET.get('who')
+    goods = Goodsdetail.objects.filter(goodsid=goodsid)
+    cart = Cart.objects.filter(user=user,goods=goods,color=color,size=size).first()
+    if who == 'add':
+        cart.number += 1
+        cart.save()
+        return JsonResponse({'msg':'加操作成功','count':cart.number})
+    elif who == 'sub':
+        cart.number -= 1
+        if cart.number <= 1:
+            cart.number = 1
+        cart.save()
+        return JsonResponse({'msg':'减操作成功','count':cart.number})

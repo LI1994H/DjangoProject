@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="212bf709-5469-424b-8ebc-741e1d545c01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sanfu/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sanfu/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanfu/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sanfu/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sanfu/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sanfu/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
@@ -121,22 +122,22 @@
           <entry key="css" value="37" />
           <entry key="django_migrations" value="1" />
           <entry key="django_session" value="3" />
-          <entry key="goodsdatail" value="15" />
+          <entry key="goodsdatail" value="16" />
           <entry key="goodslist" value="9" />
           <entry key="hotsingle" value="8" />
           <entry key="html" value="57" />
           <entry key="jpg" value="8" />
-          <entry key="js" value="46" />
+          <entry key="js" value="48" />
           <entry key="json" value="10" />
           <entry key="mens" value="8" />
           <entry key="newhot" value="5" />
           <entry key="png" value="1" />
-          <entry key="py" value="102" />
+          <entry key="py" value="103" />
           <entry key="rnc" value="2" />
           <entry key="sanfu_banner" value="7" />
-          <entry key="sanfu_cart" value="9" />
+          <entry key="sanfu_cart" value="11" />
           <entry key="sanfu_user" value="28" />
-          <entry key="sql" value="35" />
+          <entry key="sql" value="38" />
           <entry key="txt" value="19" />
           <entry key="womens" value="3" />
         </counts>
@@ -144,16 +145,16 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="37" />
-          <entry key="Database Element" value="100" />
+          <entry key="Database Element" value="103" />
           <entry key="HTML" value="57" />
           <entry key="Image" value="24" />
           <entry key="JSON" value="10" />
-          <entry key="JavaScript" value="46" />
+          <entry key="JavaScript" value="48" />
           <entry key="PLAIN_TEXT" value="19" />
-          <entry key="Python" value="102" />
+          <entry key="Python" value="103" />
           <entry key="RNG Compact" value="2" />
           <entry key="SQL" value="4" />
-          <entry key="Scratch" value="31" />
+          <entry key="Scratch" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -161,26 +162,26 @@
           <entry key="cell" value="21" />
           <entry key="css" value="468" />
           <entry key="dummy" value="2" />
-          <entry key="html" value="1338" />
-          <entry key="js" value="2886" />
-          <entry key="py" value="5280" />
+          <entry key="html" value="1530" />
+          <entry key="js" value="3618" />
+          <entry key="py" value="5993" />
           <entry key="txt" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="468" />
-          <entry key="HTML" value="1338" />
-          <entry key="JavaScript" value="2886" />
+          <entry key="HTML" value="1530" />
+          <entry key="JavaScript" value="3618" />
           <entry key="PLAIN_TEXT" value="24" />
-          <entry key="Python" value="5280" />
+          <entry key="Python" value="5993" />
           <entry key="Scratch" value="21" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.8367347">
+    <splitter split-orientation="horizontal" split-proportion="0.5530303">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
@@ -195,28 +196,19 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/sanfu/urls.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="192">
-                  <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+                <state relative-caret-position="224">
+                  <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/static/js/cart.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-688">
-                  <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/sanfu/views.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="236">
-                  <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+                <state relative-caret-position="412">
+                  <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
                   <folding>
-                    <element signature="e#0#14#0" expanded="true" />
+                    <element signature="n#!!doc" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -227,51 +219,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="116">
                   <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/22.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="224">
-                  <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/11.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="302">
-                  <caret line="47" column="159" selection-start-line="47" selection-start-column="159" selection-end-line="47" selection-end-column="159" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/a.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="19" column="460" lean-forward="true" selection-end-line="48" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/761a92a5-bdc7-4180-8ae8-473dd2c724c2/console_12.sql">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="96">
-                  <caret line="6" column="465" selection-start-line="6" selection-start-column="465" selection-end-line="6" selection-end-column="465" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="das://761a92a5-bdc7-4180-8ae8-473dd2c724c2/schema/sanfu/table/goodsdatail">
-              <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                <state>
-                  <filtering enabled="true" />
                 </state>
               </provider>
             </entry>
@@ -289,32 +236,37 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/cart.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="196">
-                  <caret line="86" column="45" lean-forward="true" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
-                  <folding>
-                    <element signature="n#style#0;n#img#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
+                <state relative-caret-position="340">
+                  <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/../projectAXF/static/mine/js/registerAxf.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-                </state>
-              </provider>
+            <entry file="file://$PROJECT_DIR$/../../Python1809AXF/static/cart/js/cart.js">
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/../projectAXF/AXF/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="16">
-                  <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
+                <state relative-caret-position="208">
+                  <caret line="207" column="45" lean-forward="true" selection-start-line="207" selection-start-column="45" selection-end-line="207" selection-end-column="45" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/sanfu/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="168">
+                  <caret line="225" column="34" lean-forward="true" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
+                  <folding>
+                    <element signature="e#0#14#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -376,18 +328,18 @@
         <option value="$PROJECT_DIR$/static/css/login.css" />
         <option value="$PROJECT_DIR$/static/css/head.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/sanfu/urls.py" />
         <option value="$PROJECT_DIR$/templates/goodsMsg.html" />
         <option value="$PROJECT_DIR$/static/js/goodsMsg.js" />
-        <option value="$PROJECT_DIR$/static/js/cart.js" />
-        <option value="$PROJECT_DIR$/sanfu/views.py" />
-        <option value="$PROJECT_DIR$/templates/cart.html" />
         <option value="$PROJECT_DIR$/sanfu/models.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/761a92a5-bdc7-4180-8ae8-473dd2c724c2/console_11.sql" />
         <option value="$PROJECT_DIR$/22.py" />
         <option value="$PROJECT_DIR$/11.txt" />
         <option value="$PROJECT_DIR$/a.txt" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/761a92a5-bdc7-4180-8ae8-473dd2c724c2/console_12.sql" />
+        <option value="$PROJECT_DIR$/sanfu/urls.py" />
+        <option value="$PROJECT_DIR$/templates/cart.html" />
+        <option value="$PROJECT_DIR$/static/js/cart.js" />
+        <option value="$PROJECT_DIR$/sanfu/views.py" />
       </list>
     </option>
   </component>
@@ -554,10 +506,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0810606" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.40454546" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -570,15 +522,15 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.18110237" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.18110237" />
       <window_info anchor="bottom" id="Python Console" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.45826772" />
+      <window_info anchor="bottom" id="Database Console" order="13" weight="0.45826772" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.21515152" />
+      <window_info anchor="right" id="Database" order="4" weight="0.21515152" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" weight="0.2806867" />
@@ -612,13 +564,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///media/lhy/本地磁盘/peixun/python 前端/day14/code/07_文件操作.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1240">
-          <caret line="62" selection-start-line="62" selection-end-line="62" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/all.txt" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/761a92a5-bdc7-4180-8ae8-473dd2c724c2/console_4.sql">
       <provider selected="true" editor-type-id="text-editor" />
@@ -795,13 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../projectAXF/AXF/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.virtualenvs/python1809/lib/python3.6/site-packages/django/db/models/sql/query.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -813,13 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../projectAXF/static/mine/js/registerAxf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -844,54 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/cart.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-688">
-          <caret line="16" column="48" lean-forward="true" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sanfu/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sanfu/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/goodsMsg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="94" column="24" selection-start-line="94" selection-start-column="24" selection-end-line="94" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cart.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="86" column="45" lean-forward="true" selection-start-line="86" selection-start-column="45" selection-end-line="86" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#td#1;n#tr#1;n#table#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://761a92a5-bdc7-4180-8ae8-473dd2c724c2/schema/sanfu/table/sanfu_cart">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://761a92a5-bdc7-4180-8ae8-473dd2c724c2/schema/sanfu/table/sanfu_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -913,10 +796,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sanfu/models.py">
+    <entry file="file://$PROJECT_DIR$/a.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+        <state relative-caret-position="304">
+          <caret line="19" column="460" lean-forward="true" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/11.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="47" column="159" selection-start-line="47" selection-start-column="159" selection-end-line="47" selection-end-column="159" />
         </state>
       </provider>
     </entry>
@@ -927,17 +817,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/11.txt">
+    <entry file="file://$PROJECT_DIR$/sanfu/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="47" column="159" selection-start-line="47" selection-start-column="159" selection-end-line="47" selection-end-column="159" />
+        <state relative-caret-position="116">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/a.txt">
+    <entry file="file://$PROJECT_DIR$/static/js/goodsMsg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="460" lean-forward="true" selection-end-line="48" />
+        <state relative-caret-position="174">
+          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../projectAXF/static/mine/js/registerAxf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://761a92a5-bdc7-4180-8ae8-473dd2c724c2/schema/sanfu/table/goodsdatail">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../projectAXF/AXF/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="207" column="45" lean-forward="true" selection-start-line="207" selection-start-column="45" selection-end-line="207" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://761a92a5-bdc7-4180-8ae8-473dd2c724c2/schema/sanfu/table/sanfu_cart">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -948,10 +866,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://761a92a5-bdc7-4180-8ae8-473dd2c724c2/schema/sanfu/table/goodsdatail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/../../Python1809AXF/static/cart/js/cart.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cart.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="98" lean-forward="true" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sanfu/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/cart.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sanfu/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="225" column="34" lean-forward="true" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
