@@ -226,14 +226,73 @@ def changecartcount(request):
     size = request.GET.get('size')
     who = request.GET.get('who')
     goods = Goodsdetail.objects.filter(goodsid=goodsid)
-    cart = Cart.objects.filter(user=user,goods=goods,color=color,size=size).first()
+    cart = Cart.objects.filter(user=user, goods=goods, color=color, size=size).first()
     if who == 'add':
         cart.number += 1
         cart.save()
-        return JsonResponse({'msg':'加操作成功','count':cart.number})
+        return JsonResponse({'msg': '加操作成功', 'count': cart.number, 'status': 1})
     elif who == 'sub':
         cart.number -= 1
         if cart.number <= 1:
             cart.number = 1
         cart.save()
-        return JsonResponse({'msg':'减操作成功','count':cart.number})
+        return JsonResponse({'msg': '减操作成功', 'count': cart.number, 'status': 2})
+    elif who == 'singledelete':
+        cart.delete()
+        return JsonResponse({'msg': '单行删成功', 'status': 3})
+
+
+def allselest(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    carts = Cart.objects.filter(user=user)
+    isselset = request.GET.get('isselect')
+    if isselset == '1':
+        for cart in carts:
+            cart.isselect = 1
+            cart.save()
+        return JsonResponse({'msg': '全选成功', 'status': 1})
+    else:
+        for cart in carts:
+            cart.isselect = 0
+            cart.save()
+        return JsonResponse({'msg': '全不选成功', 'status': 0})
+
+
+def singleselect(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    goodsid = request.GET.get('goodsid')
+    size = request.GET.get('size')
+    color = request.GET.get('color')
+    goods = Goodsdetail.objects.filter(goodsid=goodsid)
+    cart = Cart.objects.filter(user=user, size=size, goods=goods, color=color).first()
+    cart.isselect = not cart.isselect
+    cart.save()
+    responseData = {
+        'msg': '单选框已修改',
+        'status': cart.isselect
+    }
+    return JsonResponse(responseData)
+
+
+def deleteselect(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    carts = Cart.objects.filter(user=user)
+    for cart in carts:
+        if cart.isselect == True:
+            cart.delete()
+    return JsonResponse({'msg':'删除选择成功','status':1})
+
+def aggregate(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    carts = Cart.objects.filter(user=user)
+    allnum = 0
+    total = 0
+    for cart in carts:
+        if cart.isselect == True:
+            allnum += int(cart.number)
+            total += int(cart.number) * float(cart.price)
+    return JsonResponse({'msg':'总计成功','status':1,'allnum':allnum,'total':total})

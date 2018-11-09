@@ -85,39 +85,29 @@ $(function() {
 		})
 		//添加货物
 	$("#addcat").click(function() {
-			if(addcart(2)) {
-				alert("添加购物车成功");
-				// window.location.reload();
-			}
+			(addcart(2))
 		});
 		//跳转
 	$("#payMoney").click(function() {
-			if(addcart(1)){
-				// window.location.href = "http://10.2.166.37:8000/cart.html";
-				window.open('/cart/',target='_block')
-			};
+			addcart(1);
+			window.open('/cart/',target='_block')
 
 		});
 		//加入购物车方法
 	var addcart = function(who) {
-		// var name = $(".gmname").children("p").text();
 		var id = $(".gmid label").children('span').text();
 		var price = $(".gmprice").find("span").eq(1).text();
 		var colorname = $(".gmcolor li[class='gmcolorchecked']").attr("colorstyle");
-		// var colorimg = $(".gmcolor li[class='gmcolorchecked']").attr("style");
 		var size = $(".gmsize span[class='gmsizechecked']").text();
 		var count = $(".gmcount").find("input").val();
-		// console.log('名字:'+name+'id:'+id+'价格:'+price+'colorname:'+colorname+'colorimg:'+size+'数量'+count)
 		if( msgcolor=='' && size==''){
 			$(".gmmsg span").text("请选择颜色和选择尺寸");
 		}else {
             if (msgcolor == '') {
                 $(".gmmsg span").text("请选择颜色");
-                // return 0;
             }
             if (size == '') {
                 $(".gmmsg span").text("请选择尺寸");
-                // return 0;
             }
         }
 		var goodsMsg = {
@@ -127,21 +117,13 @@ $(function() {
 			'count':count,
 			'colorname':colorname,
 		};
-		var ifallow = 1;
 		$.get('/addcart/',goodsMsg,function (response) {
 			if (response.status==0){
 				window.open('/login/',target='_self')
-			}else if(response.status==-1){
-				ifallow = 0
 			}else if(response.status==1 && who ==2){
-				ifallow = 1
-				console.log(ifallow+'2222')
-
 				alert('添加购物车成功')
 			}
         });
-		// console.log(ifallow);
-		console.log(ifallow);
 		return 1
 	}
 

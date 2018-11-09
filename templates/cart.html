@@ -76,7 +76,7 @@
         	<div class="mainbody">
         		<table id="mycart">
         			<tr>
-        				<th><input type="checkbox" id="checkall"/>全选</th>
+        				<th><input type="checkbox" id="checkall" checked="checked"/>全选</th>
         				<th>图片</th>
         				<th>商品信息</th>
         				<th>促销价</th>
@@ -86,7 +86,7 @@
         			</tr>
                     {% for cartfoo in cart %}
                     <tr class="goodsinfo" goodsid="{{ cartfoo.goods.goodsid }}">
-                        <td><input type='checkbox'/></td>
+                        <td><input type='checkbox' checked="checked" class="single"/></td>
                         <td><img src="{% static cartfoo.goods.manImg %}"/></td>
                         <td><span>{{ cartfoo.goods.name }}</span><p> <span class="color">{{ cartfoo.color }}</span>,尺码 <span class="size">{{ cartfoo.size }}</span></p></td>
                         <td><span class="price">{{ cartfoo.price }}</span><span>元</span></td>
