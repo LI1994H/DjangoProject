@@ -18,6 +18,7 @@
 		<script type="text/javascript" src="{% static 'js/divcart.js' %}" ></script>
 		<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/head.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/cartnumber.js' %}"></script>
 		
 	</head>
 
@@ -38,7 +39,7 @@
                         {% if userhead %}
                         <li id="userhead">
                             <a href="{% url 'sanfu:uploadhead' %}">
-                                <img src="{{ userhead }}" alt="">
+                                <img src="{% static userhead %}" alt="">
                             </a>
                         </li>
                         {% endif %}

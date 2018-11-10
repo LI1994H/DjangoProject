@@ -124,6 +124,9 @@ $(function() {
 				alert('添加购物车成功')
 			}
         });
+		$.get('/allcartnumber/',function (response) {
+        	$('#cartnum').html(response.cartnumber)
+   		})
 		return 1
 	}
 

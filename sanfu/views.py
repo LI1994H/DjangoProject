@@ -17,7 +17,7 @@ def generate_password(password):
     sha.update(password.encode('utf-8'))
     return sha.hexdigest()
 
-
+# 主页
 def index(request):
     banners = Banner.objects.all()
     urllist = []
@@ -56,7 +56,7 @@ def index(request):
     }
     if users.exists():
         user = users.first()
-        headImg = 'static/img/headImg/' + user.userhead
+        headImg = 'img/headImg/' + user.userhead
         userdata = {
             'username': user.username,
             'userhead': headImg
@@ -66,7 +66,7 @@ def index(request):
     else:
         return render(request, 'index.html', context=data)
 
-
+# 登录
 def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
@@ -84,26 +84,26 @@ def login(request):
         else:
             return render(request, 'login.html', context={'msg': '用户名或密码错误'})
 
-
+# 购物车
 def cart(request):
     token = request.COOKIES.get('token')
     if token:
         user = User.objects.get(token=token)
-        userhead = 'static/img/headImg/' + user.userhead
+        headImg = 'img/headImg/' + user.userhead
         cart = Cart.objects.filter(user=user)
         data = {
             'username': user.username,
-            'userhead': userhead,
+            'userhead': headImg,
             'cart': cart,
         }
         return render(request, 'cart.html', context=data)
     return render(request, 'login.html')
 
-
+# 分类
 def goodsList(request):
     return render(request, 'goodsList.html')
 
-
+# 商品详情
 def goodMsg(request, goodsid):
     goodsdatail = Goodsdetail.objects.get(goodsid=goodsid)
     goodsdata = GoodList.objects.filter(goodsid=goodsid)
@@ -117,7 +117,7 @@ def goodMsg(request, goodsid):
     }
     return render(request, 'goodsMsg.html', context=data)
 
-
+# 注册
 def regiest(request):
     if request.method == 'GET':
         response = render_to_response('regiest.html')
@@ -142,13 +142,13 @@ def regiest(request):
             im = '注册失败'
             return render(request, 'regiest.html', context={'im': im})
 
-
+# 退出登录
 def outlogin(request):
     response = redirect('sanfu:index')
     response.delete_cookie('token')
     return response
 
-
+# 上传头像
 def uploadhead(request):
     if request.method == 'GET':
         return render(request, 'uploadhead.html')
@@ -169,7 +169,7 @@ def uploadhead(request):
         response = redirect('sanfu:index')
         return response
 
-
+# 账号验证
 def checkaccount(request):
     account = request.GET.get('account')
     user = User.objects.filter(username=account)
@@ -186,7 +186,7 @@ def checkaccount(request):
         }
         return JsonResponse(responseData)
 
-
+# 添加购物车
 def addcart(request):
     token = request.COOKIES.get('token')
     if token:
@@ -217,7 +217,7 @@ def addcart(request):
     else:
         return JsonResponse({'msg': '用户未登录', 'status': 0})
 
-
+# 购物车 单个商品数量修改
 def changecartcount(request):
     token = request.COOKIES.get('token')
     user = User.objects.get(token=token)
@@ -241,7 +241,7 @@ def changecartcount(request):
         cart.delete()
         return JsonResponse({'msg': '单行删成功', 'status': 3})
 
-
+# 购物车 全选 或全不选
 def allselest(request):
     token = request.COOKIES.get('token')
     user = User.objects.get(token=token)
@@ -258,7 +258,7 @@ def allselest(request):
             cart.save()
         return JsonResponse({'msg': '全不选成功', 'status': 0})
 
-
+# 购物车单选按钮
 def singleselect(request):
     token = request.COOKIES.get('token')
     user = User.objects.get(token=token)
@@ -275,7 +275,7 @@ def singleselect(request):
     }
     return JsonResponse(responseData)
 
-
+# 购物车删除所有已选中
 def deleteselect(request):
     token = request.COOKIES.get('token')
     user = User.objects.get(token=token)
@@ -284,7 +284,7 @@ def deleteselect(request):
         if cart.isselect == True:
             cart.delete()
     return JsonResponse({'msg':'删除选择成功','status':1})
-
+# 购物车内的合计
 def aggregate(request):
     token = request.COOKIES.get('token')
     user = User.objects.get(token=token)
@@ -296,3 +296,16 @@ def aggregate(request):
             allnum += int(cart.number)
             total += int(cart.number) * float(cart.price)
     return JsonResponse({'msg':'总计成功','status':1,'allnum':allnum,'total':total})
+
+# 页面显示购物车内的数量
+def allcartnumber(request):
+    token = request.COOKIES.get('token')
+    if token:
+        user = User.objects.get(token=token)
+        carts = Cart.objects.filter(user=user)
+        cartnumber = 0
+        for cart in carts:
+            cartnumber += int(cart.number)
+        return JsonResponse({'cartnumber':cartnumber,'status':1})
+    else:
+        return JsonResponse({'cartnumber':0,'status':0})

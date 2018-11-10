@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^singleselect/$', views.singleselect, name='singleselect'),  # 单选
     url(r'^deleteselect/$',views.deleteselect,name='deleteselect'),  # 删除选中
     url(r'^aggregate/$', views.aggregate, name='aggregate'),  # 总计
+    url(r'allcartnumber',views.allcartnumber,name='allcartnumber') # 获取购物车总数量
 ]

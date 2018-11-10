@@ -226,7 +226,11 @@ $(function () {
         })
     }
 	
-	
+	//继续购物
+    $('#turnBackList').click(function () {
+        window.open('/',target='_self')
+    })
+
 	// if (cartArr.length == 0) {
 //         var html = "<tr><td colspan='7'>购物车中没有商品记录！</td></tr>";
 //         $("#mycart").append(html);

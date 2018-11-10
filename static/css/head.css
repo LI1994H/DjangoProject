@@ -89,6 +89,7 @@ li {
 	width: 450px;
 	height: 30px;
 	margin-top: 27px;
+	position: relative;
 }
 
 .search input[type='text'] {
@@ -114,6 +115,9 @@ li {
 	height: 28px;
 	border: 1px solid #B7E6FA;
 	float: right;
+	position: absolute;
+	bottom: -1px;
+	left: 355px;
 }
 
 .hShowpingCat {
@@ -135,12 +139,19 @@ li {
 	background: url(../img/index/bubble.png) no-repeat;
 	display: block;
 	color: white;
-	width: 25px;
-	height: 25px;
-	top: -12px;
-	left: 50px;
+	background-size: 40px 40px;
+	/*background-color: red;*/
+	opacity: 0.7;
+	/*border-radius: 20%;*/
+	text-indent: 8px;
+	line-height: 35px;
+	width: 70px;
+	height: 35px;
+	top: -25px;
+	left: 75px;
 	font-size: 14px;
-	text-align: center;
+	/*text-align: center;*/
+	text-decoration: none;
 }
 #showpingCatShow{
 	background: white;

@@ -34,7 +34,7 @@
                         {% if userhead %}
                         <li id="userhead">
                             <a href="{% url 'sanfu:uploadhead' %}">
-                                <img src="{{ userhead }}" alt="">
+                                <img src="{% static userhead %}" alt="">
                             </a>
                         </li>
                         {% endif %}
