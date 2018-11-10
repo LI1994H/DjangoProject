@@ -47,11 +47,11 @@ $(function() {
 		});
 	});
 	// 改变图片
-	$("#cfsmall ul li").mouseenter(function() {
-		var index = $(this).index() + 1;
+	// $("#cfsmall ul li").mouseenter(function() {
+	// 	var index = $(this).index() + 1;
 		// $("#minImg").css("background-image","url(img/goods/" + igoodsdatail.manImg + ".bmp)" );
 		// $("#maxImg").css("background-image", "url(img/goods/" + igoodsdatail.manImg + ".bmp)");
-	});
+	// });
 	var msgcolor = "";
 	var msgsize = "";
 	//选择颜色
@@ -60,14 +60,14 @@ $(function() {
 			msgcolor = $(this).attr("colorstyle");
 			$(".gmmsg label").eq(1).text(msgcolor + " " + msgsize);
 			$(".gmmsg span").text("");
-		})
+		});
 		//选择尺寸
 	$(".gmsize span").click(function() {
 			$(this).addClass("gmsizechecked").siblings().removeClass("gmsizechecked");
 			msgsize = $(this).text();
 			$(".gmmsg label").eq(1).text(msgcolor + " " + msgsize);
 			$(".gmmsg span").text("");
-		})
+		});
 		//选择数量
 	$("#sub").click(function() {
 		var num = $(".gmcount input").val();
@@ -77,16 +77,13 @@ $(function() {
 			num--;
 		}
 		$(".gmcount input").val(num);
-	})
+	});
 	$("#add").click(function() {
 			var num = $(".gmcount input").val();
 			num++;
 			$(".gmcount input").val(num);
-		})
-		//添加货物
-	$("#addcat").click(function() {
-			(addcart(2))
 		});
+
 		//跳转
 	$("#payMoney").click(function() {
 			addcart(1);
@@ -121,14 +118,19 @@ $(function() {
 			if (response.status==0){
 				window.open('/login/',target='_self')
 			}else if(response.status==1 && who ==2){
+				$.get('/allcartnumber/',function (response) {
+					$('#cartnum').html(response.cartnumber);
+   				});
 				alert('添加购物车成功')
 			}
         });
-		$.get('/allcartnumber/',function (response) {
-        	$('#cartnum').html(response.cartnumber)
-   		})
+
 		return 1
-	}
+	};
+			//添加货物
+	$("#addcat").click(function() {
+		(addcart(2));
+	});
 
 		// $(".gmmsg span").text("");
 		// var cartArr = $.cookie("cart") ? JSON.parse($.cookie("cart")) : [];

@@ -108,6 +108,7 @@ $(function () {
     // 默认全选
     $.get('/allselect/', {'isselect': 1}, function () {
         $("#mycart").find(".single").prop("checked", true);
+        $('#checkall').prop('checked',true)
     });
 
     // 小计
@@ -237,14 +238,24 @@ $(function () {
         window.open('/', target = '_self')
     });
 
-
     // 结算 生成订单
     $('.generateorder').click(function () {
-        $.get('/generateorder/', function (response) {
-            if (response.status == 1) {
-                console.log(response)
+        var  isexistselect = 0;  // 没有选中不能生成订单
+        $('#mycart').find('.single').each(function () {
+            if (($(this)).prop('checked') == true){
+                isexistselect += 1;
+            }
+        });
+        if (isexistselect){
+            $.get('/generateorder/', function (response) {
+                if (response.status == 1) {
+                window.open('/order/'+ response.identifier + '/',target='_self')
             }
         })
+        } else {
+            alert('你还没选择任何商品')
+        }
+
     })
 
 

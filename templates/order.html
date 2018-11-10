@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta accesskey="百货商城 服装 时尚 鞋帽" />
+		<meta content="百货商城 服装 时尚 鞋帽" />
+		<title>我的订单</title>
+        {% load static %}
+		<link rel='icon' href="{% static 'img/index/icon.ico' %}" type=‘image/x-ico’ />
+		<link rel="stylesheet" href="{% static 'css/head.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/iconfont.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/gradient.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}"/>
+		<link rel="stylesheet" href="{% static 'css/jquery.idcode.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/order.css' %}">
+		<script type="text/javascript" src="{% static 'js/jquery-1.12.3.js' %}"></script>
+		<script type="text/javascript" src="{% static 'js/jquery.cookie.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'js/jquery.idcode.js' %}" ></script>
+		<script type="text/javascript" src="{% static 'js/head.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/order.js' %}"></script>
+	</head>
+
+	<body>
+		<!--
+        	主head
+        -->
+		<div class="loginbar">
+			<div class="loginbarMain">
+				<div>
+					<ul>
+						<li>
+                            {{ username }}
+                        </li>
+                        {% if userhead %}
+                        <li id="userhead">
+                            <a href="{% url 'sanfu:uploadhead' %}">
+                                <img src="{% static userhead %}" alt="">
+                            </a>
+                        </li>
+                        {% endif %}
+						<li>
+                            <a href="{% url 'sanfu:outlogin' %}">退出登录</a>
+						</li>
+						<li>
+							<a href="{% url 'sanfu:regiest' %}">免费注册</a>
+						</li>
+						<li>
+							<a href="#" style="background: url({% static 'img/index/nzzz3.jpg' %}) no-repeat;background-position: left;padding-left: 15px;">收藏三福</a>
+						</li>
+						<li>网店热线: 400-893-9833</li>
+						<li style="border: none;height: auto;position: relative;top: -5px;">
+							<a href="#" style="background:url({% static 'img/index/wxjgz.png' %}) no-repeat;width: 65px;height:22px;display: block;"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="header" style="height: auto;overflow: hidden;">
+			<div class="hearderMain" style="margin-top:20px;">
+				<ul>
+
+					<li>
+						<img src="{% static 'img/cart/20160917162638_5.jpg' %}" style="width: 972px;height: 99px;position: absolute;top: 40px;"/>
+						<a href="{% url 'sanfu:index' %}"><img src="{% static 'img/index/std_logo.jpg.png' %}" style="margin-right: 60px;position: relative;z-index: 1;" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--
+        	main开始
+        -->
+        <div class="cartmain">
+        	<div class="maintitle">
+        		<h4><span class="icon iconfont">&#xe8b3;</span>订单详情 <i></i><span id="identifier">订单号:</span><span id="identifiernumber">{{ order.identifier }}</span></h4>
+        	</div>
+        	<div class="mainbody">
+        		<table id="mycart">
+        			<tr>
+        				<th>图片</th>
+        				<th>商品信息</th>
+        				<th>促销价</th>
+        				<th>数量</th>
+        				<th>小计</th>
+        			</tr>
+                    {% for goods in order.ordergoods_set.all %}
+                    <tr class="goodsinfo" >
+                        <td><img src="{% static goods.goods.manImg %}"/></td>
+                        <td><span>{{ goods.goods.name }}</span><p> <span class="color">{{ goods.color }}</span>,尺码 <span class="size">{{ goods.size }}</span></p></td>
+                        <td><span class="price">{{ goods.price }}</span><span>元</span></td>
+                        <td><span class="number">{{ goods.number }}</span></td>
+                        <td><span>￥</span><span class='total'></span>元</td>
+                    </tr>
+                    {% endfor %}
+
+        		</table>
+        		<div class="cartToal">
+        			<span>商品总价(不含运费)：￥<b>0.00</b>元</span>
+        		</div>
+        		<div class="cartBtn">
+        			<input type="button" value="付款" class="generateorder" style="background: #d90349;" />
+        		</div>
+        	</div>
+        </div>
+        <!--
+        	main结束
+        -->
+		<!--
+			主footer开始
+        -->
+				<div style="width: 100%;height: auto;overflow: hidden;" class="gradient">
+
+					<div class="ftService">
+						<ul>
+							<li><img src="{% static 'img/index/zpbz.png' %}" />
+								<div>
+									<h2>正品保障</h2><span>三福官方品牌</span></div>
+							</li>
+							<li><img src="{% static 'img/index/mzgx.png' %}" />
+								<div>
+									<h2>50款</h2><span>每周更新</span></div>
+							</li>
+							<li><img src="{% static 'img/index/wlyth.png' %}" />
+								<div>
+									<h2>15天</h2><span>无理由退货</span></div>
+							</li>
+							<li><img src="{% static 'img/index/hyfw.png' %}" />
+								<div>
+									<h2>会员服务</h2><span>门店热线：<b>400-1601-606</b></span><span>网店热线：<b>400-8939-833</b></span></div>
+							</li>
+							<li style="border: none;"><i>银联特约商户</i></li>
+						</ul>
+					</div>
+					<div class="ftNav">
+						<ul class="ftNavTitle">
+							<li><label style="background: url({% static 'img/index/xszn.png' %}) no-repeat left;padding-left: 30px;">新手指南</label></li>
+							<li><label style="background: url({% static 'img/index/fkfs.png' %}) no-repeat left;padding-left: 35px;">付款方式</label></li>
+							<li><label style="background: url({% static 'img/index/psfs.png' %}) no-repeat left;padding-left: 30px;">配送方式</label></li>
+							<li><label style="background: url({% static 'img/index/shfw.png' %}) no-repeat left;padding-left: 30px;">售后服务</label></li>
+							<li><label style="background: url({% static 'img/index/bzzx.png' %}) no-repeat left;padding-left: 30px;">帮助中心</label></li>
+							<li><label style="background: url({% static 'img/index/gywm.png' %}) no-repeat left;padding-left: 30px;">关于我们</label></li>
+						</ul>
+						<ul class="ftNavMsg">
+							<li>
+								<a href="#">新用户注册</a>
+							</li>
+							<li>
+								<a href="#">找回密码</a>
+							</li>
+							<li>
+								<a href="#">用户协议</a>
+							</li>
+							<li>
+								<a href="#">会员规则</a>
+							</li>
+							<li>
+								<a href="#">积分说明</a>
+							</li>
+						</ul>
+						<ul class="ftNavMsg">
+							<li>
+								<a href="#">购物流程</a>
+							</li>
+							<li>
+								<a href="#">订单状态</a>
+							</li>
+							<li>
+								<a href="#">优惠劵使用</a>
+							</li>
+						</ul>
+						<ul class="ftNavMsg">
+							<li>
+								<a href="#">购衣常识</a>
+							</li>
+							<li>
+								<a href="#">发票制度</a>
+							</li>
+						</ul>
+						<ul class="ftNavMsg">
+							<li>
+								<a href="#">配送方式</a>
+							</li>
+							<li>
+								<a href="#">支付方式</a>
+							</li>
+						</ul>
+						<ul class="ftNavMsg">
+							<li>
+								<a href="#">退换货政策</a>
+							</li>
+							<li>
+								<a href="#">退货办理流程</a>
+							</li>
+							<li>
+								<a href="#">线上退货流程</a>
+							</li>
+							<li>
+								<a href="#">线下退货流程</a>
+							</li>
+							<li>
+								<a href="#">退款说明</a>
+							</li>
+						</ul>
+						<ul class="ftNavMsg">
+							<li>
+								<a href="#">三福招聘</a>
+							</li>
+							<li>
+								<a href="#">关于三福</a>
+							</li>
+							<li>
+								<a href="#">官方微博</a>
+							</li>
+							<li>
+								<a href="#">快递查询</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="copyright">
+					<p>粤ICP备15015680号 © 2011 SanFu All Rights Reserved.广东三福服装有限公司,禁止非法复制,
+						<a href="http://www.miit.gov.cn/">工信部备案查询</a>
+						<a href="http://webscan.360.cn/index/checkwebsite/url/sanfu.com"><img src="{% static 'img/index/360safe.png' %}" style="position: relative;top: 10px;" /></a>
+					</p>
+				</div>
+				<!--
+			主footer结束
+        -->
+	</body>
+</html>

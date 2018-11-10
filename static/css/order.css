@@ -1,0 +1,11 @@
+.maintitle i{
+    display: inline-block;
+    width: 50px;
+}
+#identifier{
+    font-size: 15px;
+}
+#identifiernumber{
+    color: black;
+    font-size: 13px;
+}

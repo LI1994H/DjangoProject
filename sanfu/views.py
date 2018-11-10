@@ -356,3 +356,9 @@ def generateorder(request):
         'identifier': order.identifier
     }
     return JsonResponse(ResponseData)
+
+
+def order(request,identifier):
+    print(identifier)
+    order = Order.objects.get(identifier=identifier)
+    return render(request,'order.html', context={'order': order})
