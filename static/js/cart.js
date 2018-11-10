@@ -105,133 +105,150 @@
 //
 // });
 $(function () {
-	// 默认全选
-	$.get('/allselect/',{'isselect':1},function () {
-		$("#mycart").find(".single").prop("checked", true);
-	});
+    // 默认全选
+    $.get('/allselect/', {'isselect': 1}, function () {
+        $("#mycart").find(".single").prop("checked", true);
+    });
 
-	// 小计
-	$('.goodsinfo').each(function () {
-		var price = $(this).find('.price').text();
-		var count = $(this).find('.count').val();
-		$(this).find('.total').html((price*count).toFixed(2))
+    // 小计
+    $('.goodsinfo').each(function () {
+        var price = $(this).find('.price').text();
+        var count = $(this).find('.count').val();
+        $(this).find('.total').html((price * count).toFixed(2))
     });
-	// 增加数量
-	$('.add').click(function () {
-		var $that = $(this);
-		var size = $(this).parents('.goodsinfo').find('.size').text();
-		var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
-		var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
-		$.get(/changecartcount/,{'goodsid':goodsid,'size':size,'color':color,'who':'add'},function (repsonse) {
-			if (repsonse.status==1){
-				var price = $that.parents('.goodsinfo').find('.price').text();
-				$that.parents('.goodsinfo').find('.count').val(repsonse.count);
-				$that.parents('.goodsinfo').find('.total').html((price*repsonse.count).toFixed(2));
-				aggregate();
-			}
-        })
-    });
-	//减少数量
-	$('.sub').click(function () {
-		var $that = $(this);
-		var size = $(this).parents('.goodsinfo').find('.size').text();
-		var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
-		var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
-		$.get(/changecartcount/,{'goodsid':goodsid,'size':size,'color':color,'who':'sub'},function (repsonse) {
-			if (repsonse.status==2){
-				var price = $that.parents('.goodsinfo').find('.price').text();
-				$that.parents('.goodsinfo').find('.count').val(repsonse.count);
-				$that.parents('.goodsinfo').find('.total').html((price*repsonse.count).toFixed(2));
+    // 增加数量
+    $('.add').click(function () {
+        var $that = $(this);
+        var size = $(this).parents('.goodsinfo').find('.size').text();
+        var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
+        var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
+        $.get(/changecartcount/, {'goodsid': goodsid, 'size': size, 'color': color, 'who': 'add'}, function (repsonse) {
+            if (repsonse.status == 1) {
+                var price = $that.parents('.goodsinfo').find('.price').text();
+                $that.parents('.goodsinfo').find('.count').val(repsonse.count);
+                $that.parents('.goodsinfo').find('.total').html((price * repsonse.count).toFixed(2));
                 aggregate();
-			}
+            }
+        })
+    });
+    //减少数量
+    $('.sub').click(function () {
+        var $that = $(this);
+        var size = $(this).parents('.goodsinfo').find('.size').text();
+        var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
+        var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
+        $.get(/changecartcount/, {'goodsid': goodsid, 'size': size, 'color': color, 'who': 'sub'}, function (repsonse) {
+            if (repsonse.status == 2) {
+                var price = $that.parents('.goodsinfo').find('.price').text();
+                $that.parents('.goodsinfo').find('.count').val(repsonse.count);
+                $that.parents('.goodsinfo').find('.total').html((price * repsonse.count).toFixed(2));
+                aggregate();
+            }
         })
     });
 
 
-	//全选按钮事件
-	$("#checkall").on('click',function () {
-		if ($("#checkall").prop("checked") == true){
-			$.get('/allselect/',{'isselect':1},function (response) {
-				if (response.status==1){
-					$("#mycart").find(".single").prop("checked", true);
-					aggregate();
-				}
+    //全选按钮事件
+    $("#checkall").on('click', function () {
+        if ($("#checkall").prop("checked") == true) {
+            $.get('/allselect/', {'isselect': 1}, function (response) {
+                if (response.status == 1) {
+                    $("#mycart").find(".single").prop("checked", true);
+                    aggregate();
+                }
             });
-		}else{
-			$.get('/allselect/',{'isselect':0},function (response) {
-				if (response.status==0){
-					$("#mycart").find(".single").prop("checked", false);
-					aggregate();
-				}
+        } else {
+            $.get('/allselect/', {'isselect': 0}, function (response) {
+                if (response.status == 0) {
+                    $("#mycart").find(".single").prop("checked", false);
+                    aggregate();
+                }
             });
-		}
-	});
+        }
+    });
 //单选按钮事件
-	$("#mycart").find(".single").on('click',function () {
-		var $that = $(this);
-		var size = $(this).parents('.goodsinfo').find('.size').text();
-		var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
-		var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
-		$.get('/singleselect/',{'size':size,'color':color,'goodsid':goodsid},function (response) {
-			if(response.status==false){
-				$that.prop('checked',false);
-				$("#checkall").prop("checked", false);
+    $("#mycart").find(".single").on('click', function () {
+        var $that = $(this);
+        var size = $(this).parents('.goodsinfo').find('.size').text();
+        var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
+        var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
+        $.get('/singleselect/', {'size': size, 'color': color, 'goodsid': goodsid}, function (response) {
+            if (response.status == false) {
+                $that.prop('checked', false);
+                $("#checkall").prop("checked", false);
                 aggregate();
 
-			}else {
-				$that.prop('checked',true);
+            } else {
+                $that.prop('checked', true);
                 aggregate();
-			}
+            }
         });
-	});
+    });
 
 
-		//删除某行商品
-	$(".delethis").click(function () {
-		var $that = $(this);
-		var size = $(this).parents('.goodsinfo').find('.size').text();
-		var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
-		var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
-		$.get('/changecartcount/',{'size':size,'color':color,'goodsid':goodsid,'who':'singledelete'},function (response) {
-			if (response.status==3){
-				$that.parents("tr").remove();
+    //删除某行商品
+    $(".delethis").click(function () {
+        var $that = $(this);
+        var size = $(this).parents('.goodsinfo').find('.size').text();
+        var color = $(this).parents('.goodsinfo').find('.color').text();  //商品尺寸 颜色 不一样是不同对象 所以需要传大小和颜色到后台判断
+        var goodsid = $(this).parents('.goodsinfo').attr('goodsid');
+        $.get('/changecartcount/', {
+            'size': size,
+            'color': color,
+            'goodsid': goodsid,
+            'who': 'singledelete'
+        }, function (response) {
+            if (response.status == 3) {
+                $that.parents("tr").remove();
                 aggregate();
-			}
+            }
         });
-	});
+    });
 
-	//删除选中商品
-	$("#deleteGoods").click(function () {
-		$.get('/deleteselect/',function (response) {
-			if (response.status==1){
-				$(".single").each(function () {
-					if($(this).prop("checked")==true){
-						$(this).parents('tr').remove();
+    //删除选中商品
+    $("#deleteGoods").click(function () {
+        $.get('/deleteselect/', function (response) {
+            if (response.status == 1) {
+                $(".single").each(function () {
+                    if ($(this).prop("checked") == true) {
+                        $(this).parents('tr').remove();
                         aggregate();
-					}
-        		})
-			}
+                    }
+                })
+            }
         });
 
-	});
+    });
 
 
     aggregate();
-	//总计
-	function aggregate() {
-		$.get('/aggregate/',function (response) {
-			$(".cartDele b").text(response.allnum);
-			$(".cartToal b").text(response.total);
+
+    //总计
+    function aggregate() {
+        $.get('/aggregate/', function (response) {
+            $(".cartDele b").text(response.allnum);
+            $(".cartToal b").text(response.total);
 
         })
     }
-	
-	//继续购物
+
+    //继续购物
     $('#turnBackList').click(function () {
-        window.open('/',target='_self')
+        window.open('/', target = '_self')
+    });
+
+
+    // 结算 生成订单
+    $('.generateorder').click(function () {
+        $.get('/generateorder/', function (response) {
+            if (response.status == 1) {
+                console.log(response)
+            }
+        })
     })
 
-	// if (cartArr.length == 0) {
+
+    // if (cartArr.length == 0) {
 //         var html = "<tr><td colspan='7'>购物车中没有商品记录！</td></tr>";
 //         $("#mycart").append(html);
 //

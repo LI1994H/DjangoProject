@@ -1,15 +1,18 @@
 from django.db import models
 
+
 # Create your models here.
 class User(models.Model):
     username = models.CharField(max_length=80, unique=True)
     userpassword = models.CharField(max_length=256)
-    userhead = models.CharField(max_length=256,default='defaultHead.jpg')
+    userhead = models.CharField(max_length=256, default='defaultHead.jpg')
     # 令牌
     token = models.CharField(max_length=256, default='')
 
+
 class Banner(models.Model):
     url = models.CharField(max_length=256)
+
 
 class Goods(models.Model):
     goodsid = models.CharField(max_length=100)
@@ -20,6 +23,7 @@ class Goods(models.Model):
 
     class Meta:
         abstract = True
+
 
 class GoodList(Goods):
     class Meta:
@@ -45,6 +49,7 @@ class Womens(Goods):
     class Meta:
         db_table = 'womens'
 
+
 class Goodsdetail(models.Model):
     goodsid = models.CharField(max_length=30)
     name = models.CharField(max_length=200)
@@ -66,6 +71,7 @@ class Goodsdetail(models.Model):
         db_table = 'goodsdatail'
 
 
+# 购物车
 class Cart(models.Model):
     # 用户
     user = models.ForeignKey(User)
@@ -83,3 +89,42 @@ class Cart(models.Model):
 
     class Meta:
         db_table = 'sanfu_cart'
+
+
+class Order(models.Model):
+    # 用户
+    user = models.ForeignKey(User)
+    # 订单号
+    identifier = models.CharField(max_length=256)
+    # 状态
+    '''
+    -1 过期
+    1 未付款
+    2 付款未发货
+    3 已发货
+    4 已签收 未评价
+    5 已评价
+    6 退款
+    '''
+    status = models.IntegerField(default=1)
+    createtime = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'sanfu_order'
+
+
+class OrderGoods(models.Model):
+    # 订单
+    order = models.ForeignKey(Order)
+    # 商品
+    goods = models.ForeignKey(Goodsdetail)
+    price = models.CharField(max_length=20)
+    # 数量
+    number = models.IntegerField()
+    # 大小
+    size = models.CharField(max_length=10)
+    # 颜色
+    color = models.CharField(max_length=30)
+
+    class Meta:
+        db_table = 'sanfu_ordergoods'

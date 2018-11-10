@@ -1,6 +1,7 @@
 import hashlib
 import os
 import random
+import time
 import uuid
 
 from django.http import HttpResponse, JsonResponse
@@ -8,7 +9,7 @@ from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from myproject import settings
-from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail, GoodList, Cart
+from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail, GoodList, Cart, Order, OrderGoods
 
 
 # 加密
@@ -16,6 +17,7 @@ def generate_password(password):
     sha = hashlib.sha512()
     sha.update(password.encode('utf-8'))
     return sha.hexdigest()
+
 
 # 主页
 def index(request):
@@ -66,6 +68,7 @@ def index(request):
     else:
         return render(request, 'index.html', context=data)
 
+
 # 登录
 def login(request):
     if request.method == 'GET':
@@ -84,6 +87,7 @@ def login(request):
         else:
             return render(request, 'login.html', context={'msg': '用户名或密码错误'})
 
+
 # 购物车
 def cart(request):
     token = request.COOKIES.get('token')
@@ -99,9 +103,11 @@ def cart(request):
         return render(request, 'cart.html', context=data)
     return render(request, 'login.html')
 
+
 # 分类
 def goodsList(request):
     return render(request, 'goodsList.html')
+
 
 # 商品详情
 def goodMsg(request, goodsid):
@@ -116,6 +122,7 @@ def goodMsg(request, goodsid):
         'goodsdata': goodsdata
     }
     return render(request, 'goodsMsg.html', context=data)
+
 
 # 注册
 def regiest(request):
@@ -142,11 +149,13 @@ def regiest(request):
             im = '注册失败'
             return render(request, 'regiest.html', context={'im': im})
 
+
 # 退出登录
 def outlogin(request):
     response = redirect('sanfu:index')
     response.delete_cookie('token')
     return response
+
 
 # 上传头像
 def uploadhead(request):
@@ -169,6 +178,7 @@ def uploadhead(request):
         response = redirect('sanfu:index')
         return response
 
+
 # 账号验证
 def checkaccount(request):
     account = request.GET.get('account')
@@ -185,6 +195,7 @@ def checkaccount(request):
             'status': 1,
         }
         return JsonResponse(responseData)
+
 
 # 添加购物车
 def addcart(request):
@@ -217,6 +228,7 @@ def addcart(request):
     else:
         return JsonResponse({'msg': '用户未登录', 'status': 0})
 
+
 # 购物车 单个商品数量修改
 def changecartcount(request):
     token = request.COOKIES.get('token')
@@ -241,6 +253,7 @@ def changecartcount(request):
         cart.delete()
         return JsonResponse({'msg': '单行删成功', 'status': 3})
 
+
 # 购物车 全选 或全不选
 def allselest(request):
     token = request.COOKIES.get('token')
@@ -257,6 +270,7 @@ def allselest(request):
             cart.isselect = 0
             cart.save()
         return JsonResponse({'msg': '全不选成功', 'status': 0})
+
 
 # 购物车单选按钮
 def singleselect(request):
@@ -275,6 +289,7 @@ def singleselect(request):
     }
     return JsonResponse(responseData)
 
+
 # 购物车删除所有已选中
 def deleteselect(request):
     token = request.COOKIES.get('token')
@@ -283,7 +298,9 @@ def deleteselect(request):
     for cart in carts:
         if cart.isselect == True:
             cart.delete()
-    return JsonResponse({'msg':'删除选择成功','status':1})
+    return JsonResponse({'msg': '删除选择成功', 'status': 1})
+
+
 # 购物车内的合计
 def aggregate(request):
     token = request.COOKIES.get('token')
@@ -295,7 +312,8 @@ def aggregate(request):
         if cart.isselect == True:
             allnum += int(cart.number)
             total += int(cart.number) * float(cart.price)
-    return JsonResponse({'msg':'总计成功','status':1,'allnum':allnum,'total':total})
+    return JsonResponse({'msg': '总计成功', 'status': 1, 'allnum': allnum, 'total': total})
+
 
 # 页面显示购物车内的数量
 def allcartnumber(request):
@@ -306,6 +324,35 @@ def allcartnumber(request):
         cartnumber = 0
         for cart in carts:
             cartnumber += int(cart.number)
-        return JsonResponse({'cartnumber':cartnumber,'status':1})
+        return JsonResponse({'cartnumber': cartnumber, 'status': 1})
     else:
-        return JsonResponse({'cartnumber':0,'status':0})
+        return JsonResponse({'cartnumber': 0, 'status': 0})
+
+
+# 生成订单
+def generateorder(request):
+    token = request.COOKIES.get('token')
+    user = User.objects.get(token=token)
+    order = Order()
+    order.user = user
+    # 订单号 = 完整时间戳(100纳秒) + 4位数随机数
+    order.identifier = str(int(time.time() * 10000000)) + str(random.randint(1000, 9999))
+    order.save()
+    # 购物车选择的商品
+    carts = Cart.objects.filter(user=user, isselect=True)
+    for cart in carts:
+        ordergoods = OrderGoods()
+        ordergoods.order = order
+        ordergoods.goods = cart.goods
+        ordergoods.price = cart.price
+        ordergoods.number = cart.number
+        ordergoods.size = cart.size
+        ordergoods.color = cart.color
+        ordergoods.save()
+        cart.delete()
+    ResponseData = {
+        'msg': '生成订单成功',
+        'status': 1,
+        'identifier': order.identifier
+    }
+    return JsonResponse(ResponseData)
