@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect, render_to_response
 
 # Create your views here.
 from myproject import settings
+from sanfu.Alipay import sanfu_alipay
 from sanfu.models import User, Banner, Newhot, Hotsingle, Mens, Womens, Goodsdetail, GoodList, Cart, Order, OrderGoods
 
 
@@ -358,7 +359,27 @@ def generateorder(request):
     return JsonResponse(ResponseData)
 
 
-def order(request,identifier):
-    print(identifier)
+def order(request, identifier):
     order = Order.objects.get(identifier=identifier)
-    return render(request,'order.html', context={'order': order})
+    return render(request, 'order.html', context={'order': order})
+
+
+def alipaynotify(request):
+    print('订单支付成功,请发货')
+    return JsonResponse({'msg': 'success'})
+
+def alipayreturn(request):
+    return HttpResponse('支付成功...............')
+
+def pay(request):
+    identifier = request.GET.get('identifier')
+    # 支付url
+    url = sanfu_alipay.direct_pay(
+        subject="订单支付测试",
+        out_trade_no=identifier,
+        total_amount=9,
+        return_url="http://39.105.179.46/alipayreturn/",
+    )
+    # 拼接支付网关
+    alipay_url = "https://openapi.alipaydev.com/gateway.do?{data}".format(data=url)
+    return JsonResponse({'alipay_url': alipay_url})

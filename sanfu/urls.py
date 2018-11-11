@@ -20,5 +20,8 @@ urlpatterns = [
     url(r'^aggregate/$', views.aggregate, name='aggregate'),  # 总计
     url(r'^allcartnumber/$', views.allcartnumber, name='allcartnumber'),  # 获取购物车总数量
     url(r'^generateorder/$', views.generateorder, name='generateorder'),  # 生成订单
-    url(r'^order/(\d+)/$', views.order, name='order')
+    url(r'^order/(\d+)/$', views.order, name='order'), # 订单显示(确认订单)
+    url(r'^pay/$', views.pay, name='pay'),  # 支付
+    url(r'^alipaynotify/$', views.alipaynotify, name='alipaynotify'),  # 支付成功后的通知页面
+    url(r'^alipayreturn/$', views.alipayreturn, name='alipayreturn') # 支付成功后客户端返回页面
 ]

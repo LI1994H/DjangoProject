@@ -135,3 +135,6 @@ STATICFILES_DIRS = [
 # SESSION_REDIS_POST = 6379
 # SESSION_REDIS_DB = 0  # 选择数据库
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img/headImg')
+
+# 钥匙路径
+ALIPAY_KEY = os.path.join(BASE_DIR, 'static/key')
