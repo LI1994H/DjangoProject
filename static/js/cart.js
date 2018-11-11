@@ -109,6 +109,7 @@ $(function () {
     $.get('/allselect/', {'isselect': 1}, function () {
         $("#mycart").find(".single").prop("checked", true);
         $('#checkall').prop('checked',true)
+        aggregate();
     });
 
     // 小计
@@ -222,7 +223,6 @@ $(function () {
     });
 
 
-    aggregate();
 
     //总计
     function aggregate() {

@@ -312,7 +312,7 @@ def aggregate(request):
         if cart.isselect == True:
             allnum += int(cart.number)
             total += int(cart.number) * float(cart.price)
-    return JsonResponse({'msg': '总计成功', 'status': 1, 'allnum': allnum, 'total': total})
+    return JsonResponse({'msg': '总计成功', 'status': 1, 'allnum': allnum, 'total': round(total, 2)})
 
 
 # 页面显示购物车内的数量
