@@ -116,13 +116,20 @@ def goodMsg(request, goodsid):
     goodsdata = GoodList.objects.filter(goodsid=goodsid)
     goodsdata = goodsdata.first()
     token = request.COOKIES.get('token')
-    user = User.objects.get(token=token)
-    data = {
-        'username': user.username,
-        'goodsdatail': goodsdatail,
-        'goodsdata': goodsdata
-    }
-    return render(request, 'goodsMsg.html', context=data)
+    if token:
+        user = User.objects.get(token=token)
+        data = {
+            'username': user.username,
+            'goodsdatail': goodsdatail,
+            'goodsdata': goodsdata
+        }
+        return render(request, 'goodsMsg.html', context=data)
+    else:
+        data = {
+            'goodsdatail': goodsdatail,
+            'goodsdata': goodsdata
+        }
+        return render(request, 'goodsMsg.html', context=data)
 
 
 # 注册
@@ -368,16 +375,25 @@ def alipaynotify(request):
     print('订单支付成功,请发货')
     return JsonResponse({'msg': 'success'})
 
+
 def alipayreturn(request):
-    return HttpResponse('支付成功...............')
+    return HttpResponse('支付成功......等待商家发货.........')
+
 
 def pay(request):
     identifier = request.GET.get('identifier')
+    order = Order.objects.get(identifier=identifier)
+    ordergoods = OrderGoods.objects.filter(order=order)
+    # 支付金额
+    price = 0
+    for goods in ordergoods:
+        price += float(goods.price)
+    price = round(price, 2)
     # 支付url
     url = sanfu_alipay.direct_pay(
         subject="订单支付测试",
         out_trade_no=identifier,
-        total_amount=9,
+        total_amount=price,
         return_url="http://39.105.179.46/alipayreturn/",
     )
     # 拼接支付网关

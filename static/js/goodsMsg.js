@@ -87,8 +87,6 @@ $(function() {
 		//跳转
 	$("#payMoney").click(function() {
 			addcart(1);
-			window.open('/cart/',target='_block')
-
 		});
 		//加入购物车方法
 	var addcart = function(who) {
@@ -122,6 +120,8 @@ $(function() {
 					$('#cartnum').html(response.cartnumber);
    				});
 				alert('添加购物车成功')
+			}else if(who==1 && response.status==1){
+				window.open('/cart/',target='_self')
 			}
         });
 
